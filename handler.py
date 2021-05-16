@@ -59,7 +59,11 @@ class handler:
                 return
 
         waiter.set(result)
-        await waiter.received()
+        try:
+            await waiter.received()
+        finally:
+            async with self.process_lock:
+                self.in_process.pop(msg_id)
 
     async def get_reponse(self, msg_id):
         async with self.process_lock:
