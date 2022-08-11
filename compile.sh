@@ -1,6 +1,13 @@
 #!/bin/bash
 target="$PWD/pb"
-cd "${BASH_SOURCE%/*}/"
+cd "${BASH_SOURCE%/*}/" || exit 2
+protoc="$PWD/protoc"
+if ! hash "$protoc"; then
+  protoc=protoc
+  if ! hash "$protoc"; then
+    echo "could not find protoc!" >&2
+  fi
+fi
 tmp="$PWD/tmp"
 pb_dir="common/pb"
 src="$tmp/$pb_dir"
@@ -12,12 +19,12 @@ else
   { cd "$tmp" && git pull ; }
 fi
 mkdir -p "$target"
-protoc -I="$src" --python_out="$target" "$src"/*.proto
+"$protoc" -I="$src" --python_out="$target" "$src"/*.proto
 pyinit="__all__ = ["
 xpyfile='^[^_].*\.py$'
 n="
 "
-cd "$target"
+cd "$target" || exit 2
 for file in *; do
   if [[ $file =~ $xpyfile ]]; then
     if [[ ! $yes ]]; then
