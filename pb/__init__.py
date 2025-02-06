@@ -118,6 +118,7 @@ __all__ = [
     'response_deck_upload_pb2',
     'response_dump_zone_pb2',
     'response_forgotpasswordrequest_pb2',
+    'response_get_admin_notes_pb2',
     'response_get_games_of_user_pb2',
     'response_get_user_info_pb2',
     'response_join_room_pb2',

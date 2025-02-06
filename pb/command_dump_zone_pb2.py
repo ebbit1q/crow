@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 import game_commands_pb2 as game__commands__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x17\x63ommand_dump_zone.proto\x1a\x13game_commands.proto\"\x81\x01\n\x10\x43ommand_DumpZone\x12\x15\n\tplayer_id\x18\x01 \x01(\x11:\x02-1\x12\x11\n\tzone_name\x18\x02 \x01(\t\x12\x14\n\x0cnumber_cards\x18\x03 \x01(\x11\x32-\n\x03\x65xt\x12\x0c.GameCommand\x18\x80\x08 \x01(\x0b\x32\x11.Command_DumpZone')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x17\x63ommand_dump_zone.proto\x1a\x13game_commands.proto\"\x9d\x01\n\x10\x43ommand_DumpZone\x12\x15\n\tplayer_id\x18\x01 \x01(\x11:\x02-1\x12\x11\n\tzone_name\x18\x02 \x01(\t\x12\x14\n\x0cnumber_cards\x18\x03 \x01(\x11\x12\x1a\n\x0bis_reversed\x18\x04 \x01(\x08:\x05\x66\x61lse2-\n\x03\x65xt\x12\x0c.GameCommand\x18\x80\x08 \x01(\x0b\x32\x11.Command_DumpZone')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'command_dump_zone_pb2', globals())
@@ -23,5 +23,5 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _COMMAND_DUMPZONE._serialized_start=49
-  _COMMAND_DUMPZONE._serialized_end=178
+  _COMMAND_DUMPZONE._serialized_end=206
 # @@protoc_insertion_point(module_scope)

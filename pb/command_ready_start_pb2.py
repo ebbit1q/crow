@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 import game_commands_pb2 as game__commands__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19\x63ommand_ready_start.proto\x1a\x13game_commands.proto\"T\n\x12\x43ommand_ReadyStart\x12\r\n\x05ready\x18\x01 \x01(\x08\x32/\n\x03\x65xt\x12\x0c.GameCommand\x18\xf8\x07 \x01(\x0b\x32\x13.Command_ReadyStart')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19\x63ommand_ready_start.proto\x1a\x13game_commands.proto\"i\n\x12\x43ommand_ReadyStart\x12\r\n\x05ready\x18\x01 \x01(\x08\x12\x13\n\x0b\x66orce_start\x18\x02 \x01(\x08\x32/\n\x03\x65xt\x12\x0c.GameCommand\x18\xf8\x07 \x01(\x0b\x32\x13.Command_ReadyStart')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'command_ready_start_pb2', globals())
@@ -23,5 +23,5 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _COMMAND_READYSTART._serialized_start=50
-  _COMMAND_READYSTART._serialized_end=134
+  _COMMAND_READYSTART._serialized_end=155
 # @@protoc_insertion_point(module_scope)

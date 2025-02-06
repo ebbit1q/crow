@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x18moderator_commands.proto\"\xa6\x01\n\x10ModeratorCommand\"\x87\x01\n\x14ModeratorCommandType\x12\x14\n\x0f\x42\x41N_FROM_SERVER\x10\xe8\x07\x12\x10\n\x0b\x42\x41N_HISTORY\x10\xe9\x07\x12\x0e\n\tWARN_USER\x10\xea\x07\x12\x11\n\x0cWARN_HISTORY\x10\xeb\x07\x12\x0e\n\tWARN_LIST\x10\xec\x07\x12\x14\n\x0fVIEWLOG_HISTORY\x10\xed\x07*\x08\x08\x64\x10\x80\x80\x80\x80\x02\"\xd8\x01\n\x15\x43ommand_BanFromServer\x12\x11\n\tuser_name\x18\x01 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x01(\t\x12\x0f\n\x07minutes\x18\x03 \x01(\r\x12\x0e\n\x06reason\x18\x04 \x01(\t\x12\x16\n\x0evisible_reason\x18\x05 \x01(\t\x12\x10\n\x08\x63lientid\x18\x06 \x01(\t\x12\x17\n\x0fremove_messages\x18\x07 \x01(\r27\n\x03\x65xt\x12\x11.ModeratorCommand\x18\xe8\x07 \x01(\x0b\x32\x16.Command_BanFromServer\"c\n\x15\x43ommand_GetBanHistory\x12\x11\n\tuser_name\x18\x01 \x01(\t27\n\x03\x65xt\x12\x11.ModeratorCommand\x18\xe9\x07 \x01(\x0b\x32\x16.Command_GetBanHistory\"\x94\x01\n\x10\x43ommand_WarnUser\x12\x11\n\tuser_name\x18\x01 \x01(\t\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12\x10\n\x08\x63lientid\x18\x03 \x01(\t\x12\x17\n\x0fremove_messages\x18\x04 \x01(\r22\n\x03\x65xt\x12\x11.ModeratorCommand\x18\xea\x07 \x01(\x0b\x32\x11.Command_WarnUser\"e\n\x16\x43ommand_GetWarnHistory\x12\x11\n\tuser_name\x18\x01 \x01(\t28\n\x03\x65xt\x12\x11.ModeratorCommand\x18\xeb\x07 \x01(\x0b\x32\x17.Command_GetWarnHistory\"\x88\x01\n\x13\x43ommand_GetWarnList\x12\x10\n\x08mod_name\x18\x01 \x01(\t\x12\x11\n\tuser_name\x18\x02 \x01(\t\x12\x15\n\ruser_clientid\x18\x03 \x01(\t25\n\x03\x65xt\x12\x11.ModeratorCommand\x18\xec\x07 \x01(\x0b\x32\x14.Command_GetWarnList\"\xf1\x01\n\x16\x43ommand_ViewLogHistory\x12\x11\n\tuser_name\x18\x01 \x01(\t\x12\x12\n\nip_address\x18\x02 \x01(\t\x12\x11\n\tgame_name\x18\x03 \x01(\t\x12\x0f\n\x07game_id\x18\x04 \x01(\t\x12\x0f\n\x07message\x18\x05 \x01(\t\x12\x14\n\x0clog_location\x18\x06 \x03(\t\x12\x12\n\ndate_range\x18\x07 \x02(\r\x12\x17\n\x0fmaximum_results\x18\x08 \x01(\r28\n\x03\x65xt\x12\x11.ModeratorCommand\x18\xed\x07 \x01(\x0b\x32\x17.Command_ViewLogHistory')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x18moderator_commands.proto\"\x89\x02\n\x10ModeratorCommand\"\xea\x01\n\x14ModeratorCommandType\x12\x14\n\x0f\x42\x41N_FROM_SERVER\x10\xe8\x07\x12\x10\n\x0b\x42\x41N_HISTORY\x10\xe9\x07\x12\x0e\n\tWARN_USER\x10\xea\x07\x12\x11\n\x0cWARN_HISTORY\x10\xeb\x07\x12\x0e\n\tWARN_LIST\x10\xec\x07\x12\x14\n\x0fVIEWLOG_HISTORY\x10\xed\x07\x12\x18\n\x13GRANT_REPLAY_ACCESS\x10\xee\x07\x12\x18\n\x13\x46ORCE_ACTIVATE_USER\x10\xef\x07\x12\x14\n\x0fGET_ADMIN_NOTES\x10\xf0\x07\x12\x17\n\x12UPDATE_ADMIN_NOTES\x10\xf1\x07*\x08\x08\x64\x10\x80\x80\x80\x80\x02\"\xd8\x01\n\x15\x43ommand_BanFromServer\x12\x11\n\tuser_name\x18\x01 \x01(\t\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x01(\t\x12\x0f\n\x07minutes\x18\x03 \x01(\r\x12\x0e\n\x06reason\x18\x04 \x01(\t\x12\x16\n\x0evisible_reason\x18\x05 \x01(\t\x12\x10\n\x08\x63lientid\x18\x06 \x01(\t\x12\x17\n\x0fremove_messages\x18\x07 \x01(\r27\n\x03\x65xt\x12\x11.ModeratorCommand\x18\xe8\x07 \x01(\x0b\x32\x16.Command_BanFromServer\"c\n\x15\x43ommand_GetBanHistory\x12\x11\n\tuser_name\x18\x01 \x01(\t27\n\x03\x65xt\x12\x11.ModeratorCommand\x18\xe9\x07 \x01(\x0b\x32\x16.Command_GetBanHistory\"\x94\x01\n\x10\x43ommand_WarnUser\x12\x11\n\tuser_name\x18\x01 \x01(\t\x12\x0e\n\x06reason\x18\x02 \x01(\t\x12\x10\n\x08\x63lientid\x18\x03 \x01(\t\x12\x17\n\x0fremove_messages\x18\x04 \x01(\r22\n\x03\x65xt\x12\x11.ModeratorCommand\x18\xea\x07 \x01(\x0b\x32\x11.Command_WarnUser\"e\n\x16\x43ommand_GetWarnHistory\x12\x11\n\tuser_name\x18\x01 \x01(\t28\n\x03\x65xt\x12\x11.ModeratorCommand\x18\xeb\x07 \x01(\x0b\x32\x17.Command_GetWarnHistory\"\x88\x01\n\x13\x43ommand_GetWarnList\x12\x10\n\x08mod_name\x18\x01 \x01(\t\x12\x11\n\tuser_name\x18\x02 \x01(\t\x12\x15\n\ruser_clientid\x18\x03 \x01(\t25\n\x03\x65xt\x12\x11.ModeratorCommand\x18\xec\x07 \x01(\x0b\x32\x14.Command_GetWarnList\"\xf1\x01\n\x16\x43ommand_ViewLogHistory\x12\x11\n\tuser_name\x18\x01 \x01(\t\x12\x12\n\nip_address\x18\x02 \x01(\t\x12\x11\n\tgame_name\x18\x03 \x01(\t\x12\x0f\n\x07game_id\x18\x04 \x01(\t\x12\x0f\n\x07message\x18\x05 \x01(\t\x12\x14\n\x0clog_location\x18\x06 \x03(\t\x12\x12\n\ndate_range\x18\x07 \x02(\r\x12\x17\n\x0fmaximum_results\x18\x08 \x01(\r28\n\x03\x65xt\x12\x11.ModeratorCommand\x18\xed\x07 \x01(\x0b\x32\x17.Command_ViewLogHistory\"\x83\x01\n\x19\x43ommand_GrantReplayAccess\x12\x11\n\treplay_id\x18\x01 \x01(\r\x12\x16\n\x0emoderator_name\x18\x02 \x01(\t2;\n\x03\x65xt\x12\x11.ModeratorCommand\x18\xee\x07 \x01(\x0b\x32\x1a.Command_GrantReplayAccess\"\x8e\x01\n\x19\x43ommand_ForceActivateUser\x12\x1c\n\x14username_to_activate\x18\x01 \x01(\t\x12\x16\n\x0emoderator_name\x18\x02 \x01(\t2;\n\x03\x65xt\x12\x11.ModeratorCommand\x18\xef\x07 \x01(\x0b\x32\x1a.Command_ForceActivateUser\"c\n\x15\x43ommand_GetAdminNotes\x12\x11\n\tuser_name\x18\x01 \x01(\t27\n\x03\x65xt\x12\x11.ModeratorCommand\x18\xf0\x07 \x01(\x0b\x32\x16.Command_GetAdminNotes\"x\n\x18\x43ommand_UpdateAdminNotes\x12\x11\n\tuser_name\x18\x01 \x01(\t\x12\r\n\x05notes\x18\x02 \x01(\t2:\n\x03\x65xt\x12\x11.ModeratorCommand\x18\xf1\x07 \x01(\x0b\x32\x19.Command_UpdateAdminNotes')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'moderator_commands_pb2', globals())
@@ -24,22 +24,34 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   ModeratorCommand.RegisterExtension(_COMMAND_GETWARNHISTORY.extensions_by_name['ext'])
   ModeratorCommand.RegisterExtension(_COMMAND_GETWARNLIST.extensions_by_name['ext'])
   ModeratorCommand.RegisterExtension(_COMMAND_VIEWLOGHISTORY.extensions_by_name['ext'])
+  ModeratorCommand.RegisterExtension(_COMMAND_GRANTREPLAYACCESS.extensions_by_name['ext'])
+  ModeratorCommand.RegisterExtension(_COMMAND_FORCEACTIVATEUSER.extensions_by_name['ext'])
+  ModeratorCommand.RegisterExtension(_COMMAND_GETADMINNOTES.extensions_by_name['ext'])
+  ModeratorCommand.RegisterExtension(_COMMAND_UPDATEADMINNOTES.extensions_by_name['ext'])
 
   DESCRIPTOR._options = None
   _MODERATORCOMMAND._serialized_start=29
-  _MODERATORCOMMAND._serialized_end=195
+  _MODERATORCOMMAND._serialized_end=294
   _MODERATORCOMMAND_MODERATORCOMMANDTYPE._serialized_start=50
-  _MODERATORCOMMAND_MODERATORCOMMANDTYPE._serialized_end=185
-  _COMMAND_BANFROMSERVER._serialized_start=198
-  _COMMAND_BANFROMSERVER._serialized_end=414
-  _COMMAND_GETBANHISTORY._serialized_start=416
-  _COMMAND_GETBANHISTORY._serialized_end=515
-  _COMMAND_WARNUSER._serialized_start=518
-  _COMMAND_WARNUSER._serialized_end=666
-  _COMMAND_GETWARNHISTORY._serialized_start=668
-  _COMMAND_GETWARNHISTORY._serialized_end=769
-  _COMMAND_GETWARNLIST._serialized_start=772
-  _COMMAND_GETWARNLIST._serialized_end=908
-  _COMMAND_VIEWLOGHISTORY._serialized_start=911
-  _COMMAND_VIEWLOGHISTORY._serialized_end=1152
+  _MODERATORCOMMAND_MODERATORCOMMANDTYPE._serialized_end=284
+  _COMMAND_BANFROMSERVER._serialized_start=297
+  _COMMAND_BANFROMSERVER._serialized_end=513
+  _COMMAND_GETBANHISTORY._serialized_start=515
+  _COMMAND_GETBANHISTORY._serialized_end=614
+  _COMMAND_WARNUSER._serialized_start=617
+  _COMMAND_WARNUSER._serialized_end=765
+  _COMMAND_GETWARNHISTORY._serialized_start=767
+  _COMMAND_GETWARNHISTORY._serialized_end=868
+  _COMMAND_GETWARNLIST._serialized_start=871
+  _COMMAND_GETWARNLIST._serialized_end=1007
+  _COMMAND_VIEWLOGHISTORY._serialized_start=1010
+  _COMMAND_VIEWLOGHISTORY._serialized_end=1251
+  _COMMAND_GRANTREPLAYACCESS._serialized_start=1254
+  _COMMAND_GRANTREPLAYACCESS._serialized_end=1385
+  _COMMAND_FORCEACTIVATEUSER._serialized_start=1388
+  _COMMAND_FORCEACTIVATEUSER._serialized_end=1530
+  _COMMAND_GETADMINNOTES._serialized_start=1532
+  _COMMAND_GETADMINNOTES._serialized_end=1631
+  _COMMAND_UPDATEADMINNOTES._serialized_start=1633
+  _COMMAND_UPDATEADMINNOTES._serialized_end=1753
 # @@protoc_insertion_point(module_scope)

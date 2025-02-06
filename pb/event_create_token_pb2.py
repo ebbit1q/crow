@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 import game_event_pb2 as game__event__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x18\x65vent_create_token.proto\x1a\x10game_event.proto\"\xdd\x01\n\x11\x45vent_CreateToken\x12\x11\n\tzone_name\x18\x01 \x01(\t\x12\x0f\n\x07\x63\x61rd_id\x18\x02 \x01(\x11\x12\x11\n\tcard_name\x18\x03 \x01(\t\x12\r\n\x05\x63olor\x18\x04 \x01(\t\x12\n\n\x02pt\x18\x05 \x01(\t\x12\x12\n\nannotation\x18\x06 \x01(\t\x12\x1e\n\x16\x64\x65stroy_on_zone_change\x18\x07 \x01(\x08\x12\t\n\x01x\x18\x08 \x01(\x11\x12\t\n\x01y\x18\t \x01(\x11\x32,\n\x03\x65xt\x12\n.GameEvent\x18\xdd\x0f \x01(\x0b\x32\x12.Event_CreateToken')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x18\x65vent_create_token.proto\x1a\x10game_event.proto\"\xf7\x01\n\x11\x45vent_CreateToken\x12\x11\n\tzone_name\x18\x01 \x01(\t\x12\x0f\n\x07\x63\x61rd_id\x18\x02 \x01(\x11\x12\x11\n\tcard_name\x18\x03 \x01(\t\x12\r\n\x05\x63olor\x18\x04 \x01(\t\x12\n\n\x02pt\x18\x05 \x01(\t\x12\x12\n\nannotation\x18\x06 \x01(\t\x12\x1e\n\x16\x64\x65stroy_on_zone_change\x18\x07 \x01(\x08\x12\t\n\x01x\x18\x08 \x01(\x11\x12\t\n\x01y\x18\t \x01(\x11\x12\x18\n\x10\x63\x61rd_provider_id\x18\n \x01(\t2,\n\x03\x65xt\x12\n.GameEvent\x18\xdd\x0f \x01(\x0b\x32\x12.Event_CreateToken')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'event_create_token_pb2', globals())
@@ -23,5 +23,5 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _EVENT_CREATETOKEN._serialized_start=47
-  _EVENT_CREATETOKEN._serialized_end=268
+  _EVENT_CREATETOKEN._serialized_end=294
 # @@protoc_insertion_point(module_scope)

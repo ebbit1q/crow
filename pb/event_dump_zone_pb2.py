@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 import game_event_pb2 as game__event__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x15\x65vent_dump_zone.proto\x1a\x10game_event.proto\"{\n\x0e\x45vent_DumpZone\x12\x15\n\rzone_owner_id\x18\x01 \x01(\x11\x12\x11\n\tzone_name\x18\x02 \x01(\t\x12\x14\n\x0cnumber_cards\x18\x03 \x01(\x11\x32)\n\x03\x65xt\x12\n.GameEvent\x18\xe2\x0f \x01(\x0b\x32\x0f.Event_DumpZone')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x15\x65vent_dump_zone.proto\x1a\x10game_event.proto\"\x97\x01\n\x0e\x45vent_DumpZone\x12\x15\n\rzone_owner_id\x18\x01 \x01(\x11\x12\x11\n\tzone_name\x18\x02 \x01(\t\x12\x14\n\x0cnumber_cards\x18\x03 \x01(\x11\x12\x1a\n\x0bis_reversed\x18\x04 \x01(\x08:\x05\x66\x61lse2)\n\x03\x65xt\x12\n.GameEvent\x18\xe2\x0f \x01(\x0b\x32\x0f.Event_DumpZone')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'event_dump_zone_pb2', globals())
@@ -22,6 +22,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   game__event__pb2.GameEvent.RegisterExtension(_EVENT_DUMPZONE.extensions_by_name['ext'])
 
   DESCRIPTOR._options = None
-  _EVENT_DUMPZONE._serialized_start=43
-  _EVENT_DUMPZONE._serialized_end=166
+  _EVENT_DUMPZONE._serialized_start=44
+  _EVENT_DUMPZONE._serialized_end=195
 # @@protoc_insertion_point(module_scope)

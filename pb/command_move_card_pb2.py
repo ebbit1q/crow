@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 import game_commands_pb2 as game__commands__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x17\x63ommand_move_card.proto\x1a\x13game_commands.proto\"P\n\nCardToMove\x12\x13\n\x07\x63\x61rd_id\x18\x01 \x01(\x11:\x02-1\x12\x11\n\tface_down\x18\x02 \x01(\x08\x12\n\n\x02pt\x18\x03 \x01(\t\x12\x0e\n\x06tapped\x18\x04 \x01(\x08\".\n\x11ListOfCardsToMove\x12\x19\n\x04\x63\x61rd\x18\x01 \x03(\x0b\x32\x0b.CardToMove\"\xee\x01\n\x10\x43ommand_MoveCard\x12\x1b\n\x0fstart_player_id\x18\x01 \x01(\x11:\x02-1\x12\x12\n\nstart_zone\x18\x02 \x01(\t\x12)\n\rcards_to_move\x18\x03 \x01(\x0b\x32\x12.ListOfCardsToMove\x12\x1c\n\x10target_player_id\x18\x04 \x01(\x11:\x02-1\x12\x13\n\x0btarget_zone\x18\x05 \x01(\t\x12\r\n\x01x\x18\x06 \x01(\x11:\x02-1\x12\r\n\x01y\x18\x07 \x01(\x11:\x02-12-\n\x03\x65xt\x12\x0c.GameCommand\x18\x83\x08 \x01(\x0b\x32\x11.Command_MoveCard')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x17\x63ommand_move_card.proto\x1a\x13game_commands.proto\"P\n\nCardToMove\x12\x13\n\x07\x63\x61rd_id\x18\x01 \x01(\x11:\x02-1\x12\x11\n\tface_down\x18\x02 \x01(\x08\x12\n\n\x02pt\x18\x03 \x01(\t\x12\x0e\n\x06tapped\x18\x04 \x01(\x08\".\n\x11ListOfCardsToMove\x12\x19\n\x04\x63\x61rd\x18\x01 \x03(\x0b\x32\x0b.CardToMove\"\x8a\x02\n\x10\x43ommand_MoveCard\x12\x1b\n\x0fstart_player_id\x18\x01 \x01(\x11:\x02-1\x12\x12\n\nstart_zone\x18\x02 \x01(\t\x12)\n\rcards_to_move\x18\x03 \x01(\x0b\x32\x12.ListOfCardsToMove\x12\x1c\n\x10target_player_id\x18\x04 \x01(\x11:\x02-1\x12\x13\n\x0btarget_zone\x18\x05 \x01(\t\x12\r\n\x01x\x18\x06 \x01(\x11:\x02-1\x12\r\n\x01y\x18\x07 \x01(\x11:\x02-1\x12\x1a\n\x0bis_reversed\x18\x08 \x01(\x08:\x05\x66\x61lse2-\n\x03\x65xt\x12\x0c.GameCommand\x18\x83\x08 \x01(\x0b\x32\x11.Command_MoveCard')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'command_move_card_pb2', globals())
@@ -27,5 +27,5 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _LISTOFCARDSTOMOVE._serialized_start=130
   _LISTOFCARDSTOMOVE._serialized_end=176
   _COMMAND_MOVECARD._serialized_start=179
-  _COMMAND_MOVECARD._serialized_end=417
+  _COMMAND_MOVECARD._serialized_end=445
 # @@protoc_insertion_point(module_scope)
