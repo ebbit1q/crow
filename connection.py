@@ -9,10 +9,14 @@ class connection:
     def __init__(self, handler):
         self.handler = handler
 
+    @property
+    def is_connected(self):
+        return self.sock.state is websockets.State.OPEN
+
     async def ask(self):
         print("SOCK IS OPEN")
         try:
-            while self.sock.state is websockets.State.OPEN:
+            while self.is_connected:
                 got = await self.sock.recv()
                 asyncio.create_task(self.handler.handle(got))
         except CancelledError:

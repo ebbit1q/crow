@@ -45,12 +45,25 @@ class handler:
 
     async def handle(self, message):
         parsed = protocol.parse_server_message(message)
-        if parsed.message_type != protocol.SERVER_RESPONSE:
-            print("<<<", parsed)
-            return
+        if parsed.message_type == protocol.SERVER_RESPONSE:
+            await self.handle_response(parsed.response)
+        elif parsed.message_type == protocol.SESSION_EVENT:
+            print("received event:")
+            print(parsed.session_event)
+        elif parsed.message_type == protocol.GAME_EVENT_CONTAINER:
+            print("received room events:")
+            for event in parsed.game_event_container.event_list:
+                print(event)
+        elif parsed.message_type == protocol.ROOM_EVENT:
+            print("received room event:")
+            print(parsed.room_event)
+        else:
+            print("received unrecognized message from server:")
+            print(parsed)
 
-        msg_id = parsed.response.cmd_id
-        result = parsed.response.response_code
+    async def handle_response(self, response):
+        msg_id = response.cmd_id
+        result = response
         async with self.process_lock:
             try:
                 waiter = self.in_process[msg_id]
