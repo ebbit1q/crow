@@ -1,0 +1,27 @@
+[project]
+name = "crow"
+version = "0.0.1"
+authors = [
+  { name="ebbit1q", email="ebbit1q@gmail.com" },
+]
+license = {text = "GPLv2"}
+keywords = [
+  "cockatrice",
+  "games",
+]
+description = "cockatrice protocol implementation in python"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "License :: OSI Aproved :: GNU General Public License v2 (GPLv2)",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+]
+dependencies = [
+  "protobuf>=5.29",
+  "websockets>=14",
+]
+
+[project.urls]
+"Homepage" = "https://cockatrice.github.io"
