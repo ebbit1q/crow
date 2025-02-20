@@ -2,7 +2,6 @@ import asyncio
 import websockets
 
 from asyncio.exceptions import CancelledError
-from asyncio.exceptions import TimeoutError
 from websockets.exceptions import ConnectionClosedOK
 
 
@@ -13,7 +12,7 @@ class connection:
     async def ask(self):
         print("SOCK IS OPEN")
         try:
-            while self.sock.open:
+            while self.sock.state is websockets.State.OPEN:
                 got = await self.sock.recv()
                 asyncio.create_task(self.handler.handle(got))
         except CancelledError:

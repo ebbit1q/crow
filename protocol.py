@@ -5,10 +5,10 @@ from . import pb
 session_commands = collections.namedtuple("session_commands", ["login"])(
     pb.session_commands_pb2.Command_Login
 )
-replay = pb.game_replay_pb2.GameReplay
-RESPONSE_OK = pb.response_pb2.Response.RespOk
+GameReplay = pb.game_replay_pb2.GameReplay
+Response = pb.response_pb2.Response
 EVENT = pb.server_message_pb2.ServerMessage.SESSION_EVENT
-RESPONSE = pb.server_message_pb2.ServerMessage.RESPONSE
+SERVER_RESPONSE = pb.server_message_pb2.ServerMessage.RESPONSE
 
 
 def parse_server_message(msg):

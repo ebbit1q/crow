@@ -17,7 +17,7 @@ def read_replay(replay):
     replay: string representation of a replay
     returns a protobuf replay object
     """
-    obj = protocol.replay.FromString(replay)
+    obj = protocol.GameReplay.FromString(replay)
     return obj
 
 
@@ -40,7 +40,7 @@ def replay_to_json(replay):
 
 def json_to_replay(json):
     """convert a json string to a replay object"""
-    return json_format.Parse(json, protocol.replay())
+    return json_format.Parse(json, protocol.GameReplay())
 
 
 def convert_to_json(input_file, output_file):

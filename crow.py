@@ -1,5 +1,3 @@
-import asyncio
-
 from . import connection
 from . import protocol
 from . import handler
@@ -7,7 +5,8 @@ from . import handler
 
 class ServerError(Exception):
     def __init__(self, reply):
-        Exception.__init__(self, f"received error response:\n{reply}")
+        resp = protocol.Response(reply)
+        Exception.__init__(self, f"received error response:\n{resp}")
 
 
 class crow:
@@ -23,13 +22,13 @@ class crow:
     async def login(self):
         await self._connection.connect(self.url)
         msg_bytes, msg_id = self._client.build(
-            protocol.commands.login,
+            protocol.session_commands.login,
             user_name=self.username,
             clientid=self.clientid,
         )
         await self._connection.send(msg_bytes)
         got = await self._handler.get_reponse(msg_id)
-        if got != protocol.RESPONSE_OK:
+        if got != protocol.Response.RespOk:
             raise ServerError(got)
 
     async def stop(self):

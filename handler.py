@@ -45,7 +45,7 @@ class handler:
 
     async def handle(self, message):
         parsed = protocol.parse_server_message(message)
-        if parsed.message_type != protocol.RESPONSE:
+        if parsed.message_type != protocol.SERVER_RESPONSE:
             print("<<<", parsed)
             return
 
