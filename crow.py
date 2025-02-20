@@ -5,8 +5,9 @@ from . import handler
 
 class ServerError(Exception):
     def __init__(self, code):
-        resp = protocol.Response.ResponseCode.Name(code)
-        Exception.__init__(self, f"received error response: {resp}")
+        self.code = code
+        self.name = protocol.Response.ResponseCode.Name(code)
+        Exception.__init__(self, f"received error response: {self.name}")
 
 
 class crow:
