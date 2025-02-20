@@ -64,6 +64,13 @@ class crow:
             await asyncio.sleep(self.ping_time)
             await self.send_command(protocol.session_commands.ping)
 
+    async def send_message(self, user, message):
+        await self.send_command(
+            protocol.session_commands.message,
+            user_name=user,
+            message=message,
+        )
+
     async def stop(self):
         self._ping_task.cancel()
         self._connection.close()
