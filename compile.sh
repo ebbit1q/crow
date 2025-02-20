@@ -2,7 +2,7 @@
 target="$PWD/pb"
 cd "${BASH_SOURCE%/*}/" || exit 2
 protoc="$PWD/protoc"
-if ! hash "$protoc"; then
+if [[ ! -x "$protoc" ]]; then
   protoc=protoc
   if ! hash "$protoc"; then
     echo "could not find protoc!" >&2
