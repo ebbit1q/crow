@@ -2,7 +2,7 @@ import asyncio
 import websockets
 
 from asyncio.exceptions import CancelledError
-from websockets.exceptions import ConnectionClosedOK
+from websockets.exceptions import ConnectionClosedOK, ConnectionClosedError
 
 
 class connection:
@@ -20,6 +20,8 @@ class connection:
             print("SOCK HAS CLOSED")
         except ConnectionClosedOK:
             print("SERVER CLOSED CONNECTION")
+        except ConnectionClosedError:
+            print("CONNECTION LOST")
 
     async def connect(self, url):
         self.sock = await websockets.connect(url)
