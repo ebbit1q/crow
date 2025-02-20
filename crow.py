@@ -4,9 +4,9 @@ from . import handler
 
 
 class ServerError(Exception):
-    def __init__(self, reply):
-        resp = protocol.Response(reply)
-        Exception.__init__(self, f"received error response:\n{resp}")
+    def __init__(self, code):
+        resp = protocol.Response.ResponseCode.Name(code)
+        Exception.__init__(self, f"received error response: {resp}")
 
 
 class crow:
@@ -27,9 +27,9 @@ class crow:
             clientid=self.clientid,
         )
         await self._connection.send(msg_bytes)
-        got = await self._handler.get_reponse(msg_id)
-        if got != protocol.Response.RespOk:
-            raise ServerError(got)
+        response_code = await self._handler.get_response(msg_id)
+        if response_code != protocol.Response.RespOk:
+            raise ServerError(response_code)
 
     async def stop(self):
         self._connection.close()

@@ -65,7 +65,7 @@ class handler:
             async with self.process_lock:
                 self.in_process.pop(msg_id)
 
-    async def get_reponse(self, msg_id):
+    async def get_response(self, msg_id):
         async with self.process_lock:
             try:
                 return self.in_process.pop(msg_id).result
