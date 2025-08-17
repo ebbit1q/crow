@@ -3,12 +3,13 @@ import collections
 from . import pb
 
 session_commands = collections.namedtuple(
-    "session_commands", ["ping", "login", "message", "get_salt"]
+    "session_commands", ["ping", "login", "message", "get_salt", "register"]
 )(
     pb.session_commands_pb2.Command_Ping,
     pb.session_commands_pb2.Command_Login,
     pb.session_commands_pb2.Command_Message,
     pb.session_commands_pb2.Command_RequestPasswordSalt,
+    pb.session_commands_pb2.Command_Register,
 )
 password_salt_ext = (
     pb.response_password_salt_pb2.Response_PasswordSalt.ext
