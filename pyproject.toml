@@ -23,5 +23,10 @@ dependencies = [
   "websockets>=14",
 ]
 
+[project.optional-dependencies]
+test = [
+  "faker>=37.5.3",
+]
+
 [project.urls]
 "Homepage" = "https://cockatrice.github.io"
