@@ -25,6 +25,52 @@ class crow:
         self._handler = handler.handler()
         self._connection = connection.connection(self._handler)
 
+    async def register(self, email: str, country: str = None, real_name: str = None) -> bool:
+        """
+        Register the username to the server. This action will replace and then close any websocket
+        currently open for this instance. It is recommended to not use the same instance to register
+        and login.
+
+        :param str email: Email address to be registered. Mandatory.
+        :param str country: 2 letters country code in ISO format (default: None).
+        :param str real_name: User's real name (default: None).
+        :rtype: bool
+        :raise ValueError: If ``self.password`` or ``email`` is None.
+        :raise ServerError: If any error other than the email requiring verification occurs.
+        :return: ``True`` if the registration was completed, ``False`` if the email address must be verified.
+        """
+        if self.password is None:
+            raise ValueError("password cannot be None.")
+        if email is None:
+            raise ValueError("email cannot be None.")
+
+        await self._connection.connect(self.url)
+        self._client.reset()
+
+        kwargs = {'email': email}
+        if country is not None:
+            kwargs['country'] = country
+        if real_name is not None:
+            kwargs['real_name'] = real_name
+
+        try:
+            await self.send_command(
+                protocol.session_commands.register,
+                user_name=self.username,
+                clientid=self.clientid,
+                password=self.password,
+                **kwargs,
+            )
+        except ServerError as e:
+            self._connection.close()
+            if e.name == 'RespRegistrationAcceptedNeedsActivation':
+                return False
+            else:
+                raise
+        else:
+            self._connection.close()
+            return True
+
     async def login(self):
         await self._connection.connect(self.url)
         self._client.reset()
