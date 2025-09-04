@@ -1,5 +1,5 @@
 #!/bin/bash
-target="$PWD/pb"
+target="$PWD/crow/pb"
 cd "${BASH_SOURCE%/*}/" || exit 2
 protoc="$PWD/protoc"
 if [[ ! -x "$protoc" ]]; then
