@@ -73,6 +73,7 @@ class TestServer:
         password: str = "password",
         enable_registration: bool = False,
         require_registration: bool = False,
+        require_email: bool = False,
         require_activation: bool = False,
         max_accounts_per_email: int = 2,
         enable_forgot_password: bool = True,
@@ -99,6 +100,7 @@ class TestServer:
         self._password: str = password
         self._enable_registration: bool = enable_registration
         self._require_registration: bool = require_registration
+        self._require_email: bool = require_email
         self._require_activation: bool = require_activation
         self._max_accounts_per_email: int = max_accounts_per_email
         self._enable_forgot_password: bool = enable_forgot_password
@@ -155,6 +157,9 @@ class TestServer:
 
         if self._require_registration:
             command += " --require-registration"
+
+        if self._require_email:
+            command += " --require-email"
 
         if self._require_activation:
             command += " --require-activation"
