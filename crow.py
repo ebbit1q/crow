@@ -7,15 +7,48 @@ from . import protocol
 
 
 class ServerError(Exception):
+    """ServerError is raised when the server sends an error response."""
+
     def __init__(self, response):
+        """Iinitialise a server error.
+
+        Args:
+            response: The protocol response object.
+        """
         self.response = response
         self.code = response.response_code
         self.name = protocol.Response.ResponseCode.Name(self.code)
         Exception.__init__(self, f"received error response: {self.name}")
 
 
+class RegistrationNeedsActivation(Exception):
+    """RegistrationNeedsActivation is raised when activation is needed.
+
+    The server can require new accounts to activate theri account before use,
+    generally through an email code.
+    """
+
+
+
 class crow:
-    def __init__(self, url, username, password=None, ping_time=5):
+    """crow implements the cockatrice protocol as a client"""
+
+    def __init__(
+        self,
+        url: str,
+        username: str,
+        password: str | None = None,
+        ping_time: int = 5,
+    ):
+        """Initializes a Crow instance
+
+        Args:
+            url: The websocket url to connect to, eg ws://example.com
+            username: The username to connect with.
+            password: The password to connect with.
+            ping_time: The frequency that pings are sent to the server to keep
+                the connection live
+        """
         self.url = url
         self.username = username
         self.clientid = f"crow_{username}"
@@ -25,33 +58,47 @@ class crow:
         self._handler = handler.handler()
         self._connection = connection.connection(self._handler)
 
-    async def register(self, email: str, country: str = None, real_name: str = None) -> bool:
-        """
-        Register the username to the server. This action will replace and then close any websocket
-        currently open for this instance. It is recommended to not use the same instance to register
-        and login.
+    async def register(
+        self,
+        email: str | None = None,
+        password: str | None = None,
+        country: str | None = None,
+        real_name: str | None = None,
+    ):
+        """Register the username to the server.
 
-        :param str email: Email address to be registered. Mandatory.
-        :param str country: 2 letters country code in ISO format (default: None).
-        :param str real_name: User's real name (default: None).
-        :rtype: bool
-        :raise ValueError: If ``self.password`` or ``email`` is None.
-        :raise ServerError: If any error other than the email requiring verification occurs.
-        :return: ``True`` if the registration was completed, ``False`` if the email address must be verified.
+        This action will replace and then close any websocket currently open
+        for this instance.
+
+        Args:
+            email: Email address to be registered.
+            password: Password to register, if not provided earlier.
+            country: 2 letter country code in ISO format.
+            real_name: User's real name.
+
+        Raises:
+            ValueError: If password is not provided
+            RegistrationNeedsActivation: When the account needs activation.
+            ServerError: When the server sends an error response.
         """
-        if self.password is None:
-            raise ValueError("password cannot be None.")
-        if email is None:
-            raise ValueError("email cannot be None.")
+        if password is not None:
+            self.password = password
+
+        if self.password is not None:
+            raise ValueError("a password is required to register")
 
         await self._connection.connect(self.url)
         self._client.reset()
 
-        kwargs = {'email': email}
+        kwargs = {}
+        if email is not None:
+            kwargs["email"] = email
+
         if country is not None:
-            kwargs['country'] = country
+            kwargs["country"] = country
+
         if real_name is not None:
-            kwargs['real_name'] = real_name
+            kwargs["real_name"] = real_name
 
         try:
             await self.send_command(
@@ -61,17 +108,18 @@ class crow:
                 password=self.password,
                 **kwargs,
             )
-        except ServerError as e:
+        finally:
             self._connection.close()
-            if e.name == 'RespRegistrationAcceptedNeedsActivation':
-                return False
-            else:
-                raise
-        else:
-            self._connection.close()
-            return True
 
     async def login(self):
+        """Log in to the server.
+
+        Uses the provided information to start the connection and
+        authenticate.
+
+        Raises:
+            ServerError: When the server sends an error response.
+        """
         await self._connection.connect(self.url)
         self._client.reset()
         kwargs = {}
@@ -97,11 +145,28 @@ class crow:
         self._ping_task = asyncio.create_task(self._ping_loop())
 
     async def send_command(self, command, *args, **kwargs):
+        """Send a command to the server.
+
+        Args:
+            command: Protocol command to send.
+            other args are used to construct the command.
+
+        Returns:
+            The response from the server.
+
+        Raises:
+            ServerError: When the server sends an error response.
+        """
         msg_bytes, msg_id = self._client.build(command, *args, **kwargs)
         await self._connection.send(msg_bytes)
         resp = await self._handler.get_response(msg_id)
-        if resp.response_code != protocol.Response.RespOk:
-            raise ServerError(resp)
+        match resp.response_code:
+            case protocol.Response.RespOk:
+                pass
+            case protocol.Response.RespRegistrationAcceptedNeedsActivation:
+                raise RegistrationNeedsActivation()
+            case _:
+                raise ServerError(resp)
 
         return resp
 
@@ -110,7 +175,16 @@ class crow:
             await asyncio.sleep(self.ping_time)
             await self.send_command(protocol.session_commands.ping)
 
-    async def send_message(self, user, message):
+    async def send_message(self, user: str, message: str):
+        """Send a direct message to a user on the server.
+
+        Args:
+            user: The username to send the message to.
+            message: The text to send.
+
+        Raises:
+            ServerError: When the server sends an error response.
+        """
         await self.send_command(
             protocol.session_commands.message,
             user_name=user,
@@ -118,5 +192,10 @@ class crow:
         )
 
     async def stop(self):
-        self._ping_task.cancel()
+        """Stop the current tasks and disconnect from the server."""
+        try:
+            self._ping_task.cancel()
+        except AttributeError:
+            pass
+
         self._connection.close()

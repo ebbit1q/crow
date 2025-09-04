@@ -11,7 +11,7 @@ keywords = [
 ]
 description = "cockatrice protocol implementation in python"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 classifiers = [
   "Development Status :: 4 - Beta",
   "License :: OSI Aproved :: GNU General Public License v2 (GPLv2)",
