@@ -11,7 +11,7 @@ class TestRegistration(unittest.IsolatedAsyncioTestCase):
     def tearDownClass(cls):
         TestServer.stop_all()
 
-    async def test_registration_returns_false_when_confirmation_required(self):
+    async def test_registration_error_message_when_confirmation_required(self):
         test_server = TestServer(
             enable_registration=True,
             require_activation=True,
@@ -27,11 +27,13 @@ class TestRegistration(unittest.IsolatedAsyncioTestCase):
         email_address = fake.email()
 
         client = crow(url, username, password)
-        result = await client.register(email_address)
 
-        self.assertEqual(result, False)
+        with self.assertRaisesRegex(
+            ServerError, "RespRegistrationAcceptedNeedsActivation"
+        ):
+            await client.register(email_address)
 
-    async def test_registration_returns_true_when_confirmation_not_required(
+    async def test_registration_error_message_when_confirmation_not_required(
         self,
     ):
         test_server = TestServer(
@@ -49,9 +51,9 @@ class TestRegistration(unittest.IsolatedAsyncioTestCase):
         email_address = fake.email()
 
         client = crow(url, username, password)
-        result = await client.register(email_address)
 
-        self.assertEqual(result, True)
+        with self.assertRaisesRegex(ServerError, "RespRegistrationAccepted"):
+            await client.register(email_address)
 
     async def test_registration_raises_ServerError_when_registration_disabled(
         self,
@@ -71,10 +73,10 @@ class TestRegistration(unittest.IsolatedAsyncioTestCase):
 
         client = crow(url, username, password)
 
-        with self.assertRaises(ServerError):
+        with self.assertRaisesRegex(ServerError, "RespRegistrationDisabled"):
             await client.register(email_address)
 
-    async def test_registration_raises_ValueError_when_password_and_email_None(
+    async def test_registration_raises_ValueError_when_password_is_None(
         self,
     ):
         test_server = TestServer()
@@ -86,15 +88,6 @@ class TestRegistration(unittest.IsolatedAsyncioTestCase):
         username = fake.user_name()
         password = None
         email_address = fake.email()
-
-        client = crow(url, username, password)
-
-        with self.assertRaises(ValueError):
-            await client.register(email_address)
-
-        username = fake.user_name()
-        password = fake.password(length=10)
-        email_address = None
 
         client = crow(url, username, password)
 
