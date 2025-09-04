@@ -15,19 +15,20 @@ class TestServer:
     :ivar TCP_PORT: The exposed TCP socket port the server listens to.
     :ivar URL: The full websocket URL to connect to the server, in the form ``ws://localhost:[port]``.
     """
+
     _USED_PORTS: set[int] = {1110, 1111}
     _USED_IDENTIFIERS: set[str] = set()
     _TEST_SERVERS: set = set()
-    _TESTATRICE_DIR: str = os.environ['TESTATRICE_HOME']
+    _TESTATRICE_DIR: str = os.environ["TESTATRICE_HOME"]
 
     class AuthenticationMethod(Enum):
-        NONE = 'none'
-        PASSWORD = 'password'
-        SQL = 'sql'
+        NONE = "none"
+        PASSWORD = "password"
+        SQL = "sql"
 
     class RoomMethod(Enum):
-        CONFIG = 'config'
-        SQL = 'sql'
+        CONFIG = "config"
+        SQL = "sql"
 
     @staticmethod
     def stop_all() -> None:
@@ -63,35 +64,38 @@ class TestServer:
         TestServer._USED_PORTS.add(port)
         return port
 
-    def __init__(self,
-                 require_client_id: bool = False,
-                 required_features: str = "''",
-                 idle_client_timeout: int = 3600,
-                 authentication_method: AuthenticationMethod = AuthenticationMethod.SQL,
-                 password: str = 'password',
-                 enable_registration: bool = False,
-                 require_registration: bool = False,
-                 require_activation: bool = False,
-                 max_accounts_per_email: int = 2,
-                 enable_forgot_password: bool = True,
-                 forgot_password_token_life: bool = 60,
-                 enable_forgot_password_challenge: bool = False,
-                 password_min_length: int = 6,
-                 username_min_length: int = 6,
-                 username_max_length=12,
-                 username_disallow_lowercase: bool = False,
-                 username_disallow_uppercase: bool = False,
-                 username_disallow_numerics: bool = False,
-                 allowed_punctuation: str = "''",
-                 allow_punctuation_prefix: bool = False,
-                 room_method: RoomMethod = RoomMethod.CONFIG,
-                 max_game_inactivity_time: int = 120,
-                 log_path: str = './logs',
-                 ):
+    def __init__(
+        self,
+        require_client_id: bool = False,
+        required_features: str = "''",
+        idle_client_timeout: int = 3600,
+        authentication_method: AuthenticationMethod = AuthenticationMethod.SQL,
+        password: str = "password",
+        enable_registration: bool = False,
+        require_registration: bool = False,
+        require_activation: bool = False,
+        max_accounts_per_email: int = 2,
+        enable_forgot_password: bool = True,
+        forgot_password_token_life: bool = 60,
+        enable_forgot_password_challenge: bool = False,
+        password_min_length: int = 6,
+        username_min_length: int = 6,
+        username_max_length=12,
+        username_disallow_lowercase: bool = False,
+        username_disallow_uppercase: bool = False,
+        username_disallow_numerics: bool = False,
+        allowed_punctuation: str = "''",
+        allow_punctuation_prefix: bool = False,
+        room_method: RoomMethod = RoomMethod.CONFIG,
+        max_game_inactivity_time: int = 120,
+        log_path: str = "./logs",
+    ):
         self._require_client_id: bool = require_client_id
         self._required_features: str = required_features
         self._idle_client_timeout: int = idle_client_timeout
-        self._authentication_method: TestServer.AuthenticationMethod = authentication_method
+        self._authentication_method: TestServer.AuthenticationMethod = (
+            authentication_method
+        )
         self._password: str = password
         self._enable_registration: bool = enable_registration
         self._require_registration: bool = require_registration
@@ -99,7 +103,9 @@ class TestServer:
         self._max_accounts_per_email: int = max_accounts_per_email
         self._enable_forgot_password: bool = enable_forgot_password
         self._forgot_password_token_life: int = forgot_password_token_life
-        self._enable_forgot_password_challenge: bool = enable_forgot_password_challenge
+        self._enable_forgot_password_challenge: bool = (
+            enable_forgot_password_challenge
+        )
         self._password_min_length: int = password_min_length
         self._username_min_length: int = username_min_length
         self._username_max_length: int = username_max_length
@@ -123,7 +129,9 @@ class TestServer:
         self._command = self._generate_command()
 
     def _generate_command(self):
-        command: str = f"./testatrice.sh -s {self.IDENTIFIER} --tcp {self.TCP_PORT} --websocket {self._websocket_port}"
+        command: str = (
+            f"./testatrice.sh -s {self.IDENTIFIER} --tcp {self.TCP_PORT} --websocket {self._websocket_port}"
+        )
 
         if self._require_client_id:
             command += " --require-client-id"
@@ -135,7 +143,9 @@ class TestServer:
             command += f" --idle-client-timeout {self._idle_client_timeout}"
 
         if self._authentication_method is not None:
-            command += f" --authentication-method {self._authentication_method.value}"
+            command += (
+                f" --authentication-method {self._authentication_method.value}"
+            )
 
         if self._password is not None:
             command += f" --password {self._password}"
@@ -150,7 +160,9 @@ class TestServer:
             command += " --require-activation"
 
         if self._max_accounts_per_email is not None:
-            command += f" --max-accounts-per-email {self._max_accounts_per_email}"
+            command += (
+                f" --max-accounts-per-email {self._max_accounts_per_email}"
+            )
 
         if self._enable_forgot_password:
             command += " --enable-forgot-password"
@@ -189,7 +201,9 @@ class TestServer:
             command += f" --rooms-method {self._room_method.value}"
 
         if self._max_game_inactivity_time is not None:
-            command += f" --max-game-inactivity-time {self._max_game_inactivity_time}"
+            command += (
+                f" --max-game-inactivity-time {self._max_game_inactivity_time}"
+            )
 
         if self._log_path is not None:
             command += f" --log-path {self._log_path}"
@@ -200,7 +214,9 @@ class TestServer:
         """
         Starts this testatrice-server instance and, if they are not already running, testatrice-database and testatrice-mailserver.
         """
-        os.system(f'/bin/bash -c "cd {TestServer._TESTATRICE_DIR} && {self._command} > /dev/null"')
+        os.system(
+            f'/bin/bash -c "cd {TestServer._TESTATRICE_DIR} && {self._command} > /dev/null"'
+        )
         time.sleep(1)
 
     def stop(self):
@@ -208,4 +224,6 @@ class TestServer:
         Stops this testatrice-server instance.
         """
         TestServer._TEST_SERVERS.discard(self)
-        os.system(f"podman stop testatrice-server-{self.IDENTIFIER} > /dev/null")
+        os.system(
+            f"podman stop testatrice-server-{self.IDENTIFIER} > /dev/null"
+        )

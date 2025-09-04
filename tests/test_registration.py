@@ -12,8 +12,12 @@ class TestRegistration(unittest.IsolatedAsyncioTestCase):
         TestServer.stop_all()
 
     async def test_registration_returns_false_when_confirmation_required(self):
-        test_server = TestServer(enable_registration=True, require_activation=True,
-                                 username_min_length=1, username_max_length=99)
+        test_server = TestServer(
+            enable_registration=True,
+            require_activation=True,
+            username_min_length=1,
+            username_max_length=99,
+        )
         test_server.start()
         url = test_server.URL
 
@@ -27,9 +31,15 @@ class TestRegistration(unittest.IsolatedAsyncioTestCase):
 
         self.assertEqual(result, False)
 
-    async def test_registration_returns_true_when_confirmation_not_required(self):
-        test_server = TestServer(enable_registration=True, require_activation=False,
-                                 username_min_length=1, username_max_length=99)
+    async def test_registration_returns_true_when_confirmation_not_required(
+        self,
+    ):
+        test_server = TestServer(
+            enable_registration=True,
+            require_activation=False,
+            username_min_length=1,
+            username_max_length=99,
+        )
         test_server.start()
         url = test_server.URL
 
@@ -43,9 +53,14 @@ class TestRegistration(unittest.IsolatedAsyncioTestCase):
 
         self.assertEqual(result, True)
 
-    async def test_registration_raises_ServerError_when_registration_disabled(self):
-        test_server = TestServer(enable_registration=False,
-                                 username_min_length=1, username_max_length=99)
+    async def test_registration_raises_ServerError_when_registration_disabled(
+        self,
+    ):
+        test_server = TestServer(
+            enable_registration=False,
+            username_min_length=1,
+            username_max_length=99,
+        )
         test_server.start()
         url = test_server.URL
 
@@ -59,7 +74,9 @@ class TestRegistration(unittest.IsolatedAsyncioTestCase):
         with self.assertRaises(ServerError):
             await client.register(email_address)
 
-    async def test_registration_raises_ValueError_when_password_and_email_None(self):
+    async def test_registration_raises_ValueError_when_password_and_email_None(
+        self,
+    ):
         test_server = TestServer()
         test_server.start()
         url = test_server.URL
@@ -85,5 +102,5 @@ class TestRegistration(unittest.IsolatedAsyncioTestCase):
             await client.register(email_address)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
