@@ -11,6 +11,9 @@ concurrency:
   group: "${{ github.workflow }} @ ${{ github.ref_name }}"
   cancel-in-progress: true
 
+env:
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   tests:
     name: Tests
@@ -25,6 +28,9 @@ jobs:
       - name: Install tests and deps
         shell: bash
         run: pip install .[test]
+
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
 
       - name: Run registration tests
         shell: bash
