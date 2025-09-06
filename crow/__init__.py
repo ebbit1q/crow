@@ -1,3 +1,3 @@
-from .crow import crow, ServerError
+from .crow import ServerError, crow
 
 __all__ = ["crow", "ServerError"]

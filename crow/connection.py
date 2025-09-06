@@ -1,8 +1,8 @@
 import asyncio
-import websockets
-
 from asyncio.exceptions import CancelledError
-from websockets.exceptions import ConnectionClosedOK, ConnectionClosedError
+
+import websockets
+from websockets.exceptions import ConnectionClosedError, ConnectionClosedOK
 
 
 class connection:

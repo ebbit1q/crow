@@ -1,9 +1,6 @@
 import asyncio
 
-from . import connection
-from . import handler
-from . import passwordhasher
-from . import protocol
+from . import connection, handler, passwordhasher, protocol
 
 
 class ServerError(Exception):
