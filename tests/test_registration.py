@@ -1,9 +1,10 @@
 import unittest
 
 from faker import Faker
-from test_server import TestServer
 
 from crow import ServerError, crow
+
+from .test_server import TestServer
 
 
 class TestRegistration(unittest.IsolatedAsyncioTestCase):
