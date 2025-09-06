@@ -1,4 +1,5 @@
 import os
+import pathlib
 import time
 from enum import Enum
 
@@ -18,7 +19,7 @@ class TestServer:
     _USED_PORTS: set[int] = {1110, 1111}
     _USED_IDENTIFIERS: set[str] = set()
     _TEST_SERVERS: set = set()
-    _TESTATRICE_DIR: str = "./testatrice"
+    _TESTATRICE_DIR: str = pathlib.Path(__file__).parent / "testatrice"
 
     class AuthenticationMethod(Enum):
         NONE = "none"
