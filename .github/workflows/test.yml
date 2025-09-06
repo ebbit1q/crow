@@ -1,0 +1,36 @@
+name: Run tests on testatrice
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'crow/'
+      - 'tests/'
+  pull_request:
+    paths:
+      - 'crow/'
+      - 'tests/'
+
+concurrency:
+  group: "${{ github.workflow }} @ ${{ github.ref_name }}"
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          submodules: true
+
+      - name: Install tests and deps
+        shell: bash
+        run: pip install .[test]
+
+      - name: Run registration tests
+        shell: bash
+        run: python -m tests.test_registration
