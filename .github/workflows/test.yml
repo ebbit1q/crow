@@ -2,11 +2,6 @@ name: Run tests on testatrice
 
 on:
   push:
-    branches:
-      - master
-    paths:
-      - 'crow/'
-      - 'tests/'
   pull_request:
     paths:
       - 'crow/'
