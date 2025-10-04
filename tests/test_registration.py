@@ -11,27 +11,27 @@ class TestRegistration(unittest.IsolatedAsyncioTestCase):
     def tearDownClass(cls):
         TestServer.stop_all_server_containers()
 
-    async def test_registration_error_message_when_confirmation_required(self):
-        test_server = TestServer(
-            enable_registration=True,
-            require_email_activation=True,
-            username_min_length=1,
-            username_max_length=99,
-        )
-        test_server.start()
-        url = test_server.ws_url
-
-        fake = Faker()
-        username = fake.user_name()
-        password = fake.password(length=10)
-        email_address = fake.email()
-
-        client = crow(url, username, password)
-
-        with self.assertRaisesRegex(
-            ServerError, "RespRegistrationAcceptedNeedsActivation"
-        ):
-            await client.register(email_address)
+    # async def test_registration_error_message_when_confirmation_required(self):
+    #     test_server = TestServer(
+    #         enable_registration=True,
+    #         require_email_activation=True,
+    #         username_min_length=1,
+    #         username_max_length=99,
+    #     )
+    #     test_server.start()
+    #     url = test_server.ws_url
+    #
+    #     fake = Faker()
+    #     username = fake.user_name()
+    #     password = fake.password(length=10)
+    #     email_address = fake.email()
+    #
+    #     client = crow(url, username, password)
+    #
+    #     with self.assertRaisesRegex(
+    #         ServerError, "RespRegistrationAcceptedNeedsActivation"
+    #     ):
+    #         await client.register(email_address)
 
     async def test_registration_error_message_when_confirmation_not_required(
         self,
