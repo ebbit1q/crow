@@ -1,0 +1,47 @@
+name: Run tests on testatrice
+
+on:
+  push:
+  pull_request:
+    paths:
+      - 'crow/'
+      - 'tests/'
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          submodules: true
+
+      - name: Install tests and deps
+        shell: bash
+        run: pip install .[test]
+
+      - name: Run podman service
+        shell: bash
+        run: podman system service -t 0 &
+
+      - name: Download cockatrice.deb
+        shell: bash
+        run: gh release download --repo "github.com/Cockatrice/Cockatrice" --pattern *Ubuntu24.04.deb --output ./cockatrice.deb
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install testatrice module
+        shell: bash
+        run: pip install ./tests/testatrice
+
+      - name: Start test environment
+        shell: bash
+        run: python -m testatrice build-environment --verbose --deb-path "./cockatrice.deb"
+
+      # Without the -u flag some outputs are printed in an unexpected order.
+      # Refer to PR #4 for examples.
+      - name: Run registration tests
+        shell: bash
+        run: python -u -m tests.test_registration
