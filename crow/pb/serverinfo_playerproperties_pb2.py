@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 import serverinfo_user_pb2 as serverinfo__user__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n!serverinfo_playerproperties.proto\x1a\x15serverinfo_user.proto\"\xe1\x01\n\x1bServerInfo_PlayerProperties\x12\x11\n\tplayer_id\x18\x01 \x01(\x11\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.ServerInfo_User\x12\x11\n\tspectator\x18\x03 \x01(\x08\x12\x10\n\x08\x63onceded\x18\x04 \x01(\x08\x12\x13\n\x0bready_start\x18\x05 \x01(\x08\x12\x11\n\tdeck_hash\x18\x06 \x01(\t\x12\x14\n\x0cping_seconds\x18\x07 \x01(\x11\x12\x18\n\x10sideboard_locked\x18\x08 \x01(\x08\x12\r\n\x05judge\x18\t \x01(\x08')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n!serverinfo_playerproperties.proto\x1a\x15serverinfo_user.proto\"\xcc\x03\n\x1bServerInfo_PlayerProperties\x12\x11\n\tplayer_id\x18\x01 \x01(\x11\x12#\n\tuser_info\x18\x02 \x01(\x0b\x32\x10.ServerInfo_User\x12\x11\n\tspectator\x18\x03 \x01(\x08\x12\x10\n\x08\x63onceded\x18\x04 \x01(\x08\x12\x13\n\x0bready_start\x18\x05 \x01(\x08\x12\x11\n\tdeck_hash\x18\x06 \x01(\t\x12\x14\n\x0cping_seconds\x18\x07 \x01(\x11\x12\x18\n\x10sideboard_locked\x18\x08 \x01(\x08\x12\r\n\x05judge\x18\t \x01(\x08\x12\x42\n\x0eplaymat_params\x18\n \x01(\x0b\x32*.ServerInfo_PlayerProperties.PlaymatParams\x1a\xa4\x01\n\rPlaymatParams\x12\x11\n\tcard_name\x18\x01 \x01(\t\x12\x18\n\x10\x63\x61rd_provider_id\x18\x02 \x01(\t\x12\x1a\n\x0cmargin_pct_l\x18\x03 \x01(\x01:\x04\x30.07\x12\x1a\n\x0cmargin_pct_r\x18\x04 \x01(\x01:\x04\x30.07\x12\x1d\n\x0fvertical_offset\x18\x05 \x01(\x01:\x04\x30.33\x12\x0f\n\x04zoom\x18\x06 \x01(\x01:\x01\x31')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'serverinfo_playerproperties_pb2', globals())
@@ -22,5 +22,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _SERVERINFO_PLAYERPROPERTIES._serialized_start=61
-  _SERVERINFO_PLAYERPROPERTIES._serialized_end=286
+  _SERVERINFO_PLAYERPROPERTIES._serialized_end=521
+  _SERVERINFO_PLAYERPROPERTIES_PLAYMATPARAMS._serialized_start=357
+  _SERVERINFO_PLAYERPROPERTIES_PLAYMATPARAMS._serialized_end=521
 # @@protoc_insertion_point(module_scope)

@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 import session_event_pb2 as session__event__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x17\x65vent_notify_user.proto\x1a\x13session_event.proto\"\x93\x02\n\x10\x45vent_NotifyUser\x12\x30\n\x04type\x18\x01 \x01(\x0e\x32\".Event_NotifyUser.NotificationType\x12\x16\n\x0ewarning_reason\x18\x02 \x01(\t\x12\x14\n\x0c\x63ustom_title\x18\x03 \x01(\t\x12\x16\n\x0e\x63ustom_content\x18\x04 \x01(\t\"W\n\x10NotificationType\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x0c\n\x08PROMOTED\x10\x01\x12\x0b\n\x07WARNING\x10\x02\x12\x0f\n\x0bIDLEWARNING\x10\x03\x12\n\n\x06\x43USTOM\x10\x04\x32.\n\x03\x65xt\x12\r.SessionEvent\x18\xf2\x07 \x01(\x0b\x32\x11.Event_NotifyUser')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x17\x65vent_notify_user.proto\x1a\x13session_event.proto\"\xbd\x02\n\x10\x45vent_NotifyUser\x12\x30\n\x04type\x18\x01 \x01(\x0e\x32\".Event_NotifyUser.NotificationType\x12\x16\n\x0ewarning_reason\x18\x02 \x01(\t\x12\x14\n\x0c\x63ustom_title\x18\x03 \x01(\t\x12\x16\n\x0e\x63ustom_content\x18\x04 \x01(\t\"\x80\x01\n\x10NotificationType\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x0c\n\x08PROMOTED\x10\x01\x12\x0b\n\x07WARNING\x10\x02\x12\x0f\n\x0bIDLEWARNING\x10\x03\x12\n\n\x06\x43USTOM\x10\x04\x12\x13\n\x0fREPORT_RESOLVED\x10\x05\x12\x12\n\x0eREPORT_COMMENT\x10\x06\x32.\n\x03\x65xt\x12\r.SessionEvent\x18\xf2\x07 \x01(\x0b\x32\x11.Event_NotifyUser')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'event_notify_user_pb2', globals())
@@ -23,7 +23,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _EVENT_NOTIFYUSER._serialized_start=49
-  _EVENT_NOTIFYUSER._serialized_end=324
-  _EVENT_NOTIFYUSER_NOTIFICATIONTYPE._serialized_start=189
-  _EVENT_NOTIFYUSER_NOTIFICATIONTYPE._serialized_end=276
+  _EVENT_NOTIFYUSER._serialized_end=366
+  _EVENT_NOTIFYUSER_NOTIFICATIONTYPE._serialized_start=190
+  _EVENT_NOTIFYUSER_NOTIFICATIONTYPE._serialized_end=318
 # @@protoc_insertion_point(module_scope)

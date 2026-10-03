@@ -16,15 +16,16 @@ import game_commands_pb2 as game__commands__pb2
 import room_commands_pb2 as room__commands__pb2
 import moderator_commands_pb2 as moderator__commands__pb2
 import admin_commands_pb2 as admin__commands__pb2
+import developer_commands_pb2 as developer__commands__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0e\x63ommands.proto\x1a\x16session_commands.proto\x1a\x13game_commands.proto\x1a\x13room_commands.proto\x1a\x18moderator_commands.proto\x1a\x14\x61\x64min_commands.proto\"\x8a\x02\n\x10\x43ommandContainer\x12\x0e\n\x06\x63md_id\x18\x01 \x01(\x04\x12\x0f\n\x07game_id\x18\n \x01(\r\x12\x0f\n\x07room_id\x18\x14 \x01(\r\x12(\n\x0fsession_command\x18\x64 \x03(\x0b\x32\x0f.SessionCommand\x12\"\n\x0cgame_command\x18\x65 \x03(\x0b\x32\x0c.GameCommand\x12\"\n\x0croom_command\x18\x66 \x03(\x0b\x32\x0c.RoomCommand\x12,\n\x11moderator_command\x18g \x03(\x0b\x32\x11.ModeratorCommand\x12$\n\radmin_command\x18h \x03(\x0b\x32\r.AdminCommand')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0e\x63ommands.proto\x1a\x16session_commands.proto\x1a\x13game_commands.proto\x1a\x13room_commands.proto\x1a\x18moderator_commands.proto\x1a\x14\x61\x64min_commands.proto\x1a\x18\x64\x65veloper_commands.proto\"\xb8\x02\n\x10\x43ommandContainer\x12\x0e\n\x06\x63md_id\x18\x01 \x01(\x04\x12\x0f\n\x07game_id\x18\n \x01(\r\x12\x0f\n\x07room_id\x18\x14 \x01(\r\x12(\n\x0fsession_command\x18\x64 \x03(\x0b\x32\x0f.SessionCommand\x12\"\n\x0cgame_command\x18\x65 \x03(\x0b\x32\x0c.GameCommand\x12\"\n\x0croom_command\x18\x66 \x03(\x0b\x32\x0c.RoomCommand\x12,\n\x11moderator_command\x18g \x03(\x0b\x32\x11.ModeratorCommand\x12$\n\radmin_command\x18h \x03(\x0b\x32\r.AdminCommand\x12,\n\x11\x64\x65veloper_command\x18i \x03(\x0b\x32\x11.DeveloperCommand')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'commands_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _COMMANDCONTAINER._serialized_start=133
-  _COMMANDCONTAINER._serialized_end=399
+  _COMMANDCONTAINER._serialized_start=159
+  _COMMANDCONTAINER._serialized_end=471
 # @@protoc_insertion_point(module_scope)

@@ -13,17 +13,17 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1cserverinfo_deckstorage.proto\"4\n\x1bServerInfo_DeckStorage_File\x12\x15\n\rcreation_time\x18\x01 \x01(\r\"P\n\x1dServerInfo_DeckStorage_Folder\x12/\n\x05items\x18\x01 \x03(\x0b\x32 .ServerInfo_DeckStorage_TreeItem\"\x97\x01\n\x1fServerInfo_DeckStorage_TreeItem\x12\n\n\x02id\x18\x01 \x01(\r\x12\x0c\n\x04name\x18\x02 \x01(\t\x12*\n\x04\x66ile\x18\n \x01(\x0b\x32\x1c.ServerInfo_DeckStorage_File\x12.\n\x06\x66older\x18\x0b \x01(\x0b\x32\x1e.ServerInfo_DeckStorage_Folder')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1cserverinfo_deckstorage.proto\"\xa5\x01\n\x1bServerInfo_DeckStorage_File\x12\x15\n\rcreation_time\x18\x01 \x01(\r\x12\x11\n\tis_public\x18\x02 \x01(\x08\x12\x18\n\x10\x62\x61nner_card_name\x18\x03 \x01(\t\x12\x1c\n\x14\x62\x61nner_card_provider\x18\x04 \x01(\t\x12\x16\n\x0e\x63olor_identity\x18\x05 \x01(\t\x12\x0c\n\x04tags\x18\x06 \x03(\t\"c\n\x1dServerInfo_DeckStorage_Folder\x12/\n\x05items\x18\x01 \x03(\x0b\x32 .ServerInfo_DeckStorage_TreeItem\x12\x11\n\tis_public\x18\x02 \x01(\x08\"\x97\x01\n\x1fServerInfo_DeckStorage_TreeItem\x12\n\n\x02id\x18\x01 \x01(\r\x12\x0c\n\x04name\x18\x02 \x01(\t\x12*\n\x04\x66ile\x18\n \x01(\x0b\x32\x1c.ServerInfo_DeckStorage_File\x12.\n\x06\x66older\x18\x0b \x01(\x0b\x32\x1e.ServerInfo_DeckStorage_Folder')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'serverinfo_deckstorage_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _SERVERINFO_DECKSTORAGE_FILE._serialized_start=32
-  _SERVERINFO_DECKSTORAGE_FILE._serialized_end=84
-  _SERVERINFO_DECKSTORAGE_FOLDER._serialized_start=86
-  _SERVERINFO_DECKSTORAGE_FOLDER._serialized_end=166
-  _SERVERINFO_DECKSTORAGE_TREEITEM._serialized_start=169
-  _SERVERINFO_DECKSTORAGE_TREEITEM._serialized_end=320
+  _SERVERINFO_DECKSTORAGE_FILE._serialized_start=33
+  _SERVERINFO_DECKSTORAGE_FILE._serialized_end=198
+  _SERVERINFO_DECKSTORAGE_FOLDER._serialized_start=200
+  _SERVERINFO_DECKSTORAGE_FOLDER._serialized_end=299
+  _SERVERINFO_DECKSTORAGE_TREEITEM._serialized_start=302
+  _SERVERINFO_DECKSTORAGE_TREEITEM._serialized_end=453
 # @@protoc_insertion_point(module_scope)

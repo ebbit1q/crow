@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 import session_commands_pb2 as session__commands__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19\x63ommand_deck_upload.proto\x1a\x16session_commands.proto\"z\n\x12\x43ommand_DeckUpload\x12\x0c\n\x04path\x18\x01 \x01(\t\x12\x0f\n\x07\x64\x65\x63k_id\x18\x02 \x01(\r\x12\x11\n\tdeck_list\x18\x03 \x01(\t22\n\x03\x65xt\x12\x0f.SessionCommand\x18\xf5\x07 \x01(\x0b\x32\x13.Command_DeckUpload')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19\x63ommand_deck_upload.proto\x1a\x16session_commands.proto\"\xe5\x01\n\x12\x43ommand_DeckUpload\x12\x0c\n\x04path\x18\x01 \x01(\t\x12\x0f\n\x07\x64\x65\x63k_id\x18\x02 \x01(\r\x12\x11\n\tdeck_list\x18\x03 \x01(\t\x12\x11\n\tis_public\x18\x04 \x01(\x08\x12\x16\n\x0e\x63olor_identity\x18\x07 \x01(\t22\n\x03\x65xt\x12\x0f.SessionCommand\x18\xf5\x07 \x01(\x0b\x32\x13.Command_DeckUploadJ\x04\x08\x05\x10\x06J\x04\x08\x06\x10\x07J\x04\x08\x08\x10\tR\x10\x62\x61nner_card_nameR\x14\x62\x61nner_card_providerR\x04tags')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'command_deck_upload_pb2', globals())
@@ -22,6 +22,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   session__commands__pb2.SessionCommand.RegisterExtension(_COMMAND_DECKUPLOAD.extensions_by_name['ext'])
 
   DESCRIPTOR._options = None
-  _COMMAND_DECKUPLOAD._serialized_start=53
-  _COMMAND_DECKUPLOAD._serialized_end=175
+  _COMMAND_DECKUPLOAD._serialized_start=54
+  _COMMAND_DECKUPLOAD._serialized_end=283
 # @@protoc_insertion_point(module_scope)

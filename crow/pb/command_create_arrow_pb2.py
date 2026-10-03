@@ -15,7 +15,7 @@ import game_commands_pb2 as game__commands__pb2
 import color_pb2 as color__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1a\x63ommand_create_arrow.proto\x1a\x13game_commands.proto\x1a\x0b\x63olor.proto\"\xff\x01\n\x13\x43ommand_CreateArrow\x12\x1b\n\x0fstart_player_id\x18\x01 \x01(\x11:\x02-1\x12\x12\n\nstart_zone\x18\x02 \x01(\t\x12\x19\n\rstart_card_id\x18\x03 \x01(\x11:\x02-1\x12\x1c\n\x10target_player_id\x18\x04 \x01(\x11:\x02-1\x12\x13\n\x0btarget_zone\x18\x05 \x01(\t\x12\x1a\n\x0etarget_card_id\x18\x06 \x01(\x11:\x02-1\x12\x1b\n\x0b\x61rrow_color\x18\x07 \x01(\x0b\x32\x06.color20\n\x03\x65xt\x12\x0c.GameCommand\x18\xf3\x07 \x01(\x0b\x32\x14.Command_CreateArrow')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1a\x63ommand_create_arrow.proto\x1a\x13game_commands.proto\x1a\x0b\x63olor.proto\"\x98\x02\n\x13\x43ommand_CreateArrow\x12\x1b\n\x0fstart_player_id\x18\x01 \x01(\x11:\x02-1\x12\x12\n\nstart_zone\x18\x02 \x01(\t\x12\x19\n\rstart_card_id\x18\x03 \x01(\x11:\x02-1\x12\x1c\n\x10target_player_id\x18\x04 \x01(\x11:\x02-1\x12\x13\n\x0btarget_zone\x18\x05 \x01(\t\x12\x1a\n\x0etarget_card_id\x18\x06 \x01(\x11:\x02-1\x12\x1b\n\x0b\x61rrow_color\x18\x07 \x01(\x0b\x32\x06.color\x12\x17\n\x0f\x64\x65lete_in_phase\x18\x08 \x01(\x11\x32\x30\n\x03\x65xt\x12\x0c.GameCommand\x18\xf3\x07 \x01(\x0b\x32\x14.Command_CreateArrow')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'command_create_arrow_pb2', globals())
@@ -24,5 +24,5 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _COMMAND_CREATEARROW._serialized_start=65
-  _COMMAND_CREATEARROW._serialized_end=320
+  _COMMAND_CREATEARROW._serialized_end=345
 # @@protoc_insertion_point(module_scope)
