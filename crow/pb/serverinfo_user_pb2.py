@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x15serverinfo_user.proto\"\xe4\x03\n\x0fServerInfo_User\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nuser_level\x18\x02 \x01(\r\x12\x0f\n\x07\x61\x64\x64ress\x18\x03 \x01(\t\x12\x11\n\treal_name\x18\x04 \x01(\t\x12\x0f\n\x07\x63ountry\x18\x06 \x01(\t\x12\x12\n\navatar_bmp\x18\x07 \x01(\x0c\x12\x0e\n\x02id\x18\x08 \x01(\x11:\x02-1\x12\x15\n\tserver_id\x18\t \x01(\x11:\x02-1\x12\x12\n\nsession_id\x18\n \x01(\x04\x12\x17\n\x0f\x61\x63\x63ountage_secs\x18\x0b \x01(\x04\x12\r\n\x05\x65mail\x18\x0c \x01(\t\x12\x10\n\x08\x63lientid\x18\r \x01(\t\x12\x11\n\tprivlevel\x18\x0e \x01(\t\x12\x38\n\x0bpawn_colors\x18\x0f \x01(\x0b\x32#.ServerInfo_User.PawnColorsOverride\x1a;\n\x12PawnColorsOverride\x12\x11\n\tleft_side\x18\x01 \x01(\t\x12\x12\n\nright_side\x18\x02 \x01(\t\"g\n\rUserLevelFlag\x12\r\n\tIsNothing\x10\x00\x12\n\n\x06IsUser\x10\x01\x12\x10\n\x0cIsRegistered\x10\x02\x12\x0f\n\x0bIsModerator\x10\x04\x12\x0b\n\x07IsAdmin\x10\x08\x12\x0b\n\x07IsJudge\x10\x10')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x15serverinfo_user.proto\"\xd5\x05\n\x0fServerInfo_User\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nuser_level\x18\x02 \x01(\r\x12\x0f\n\x07\x61\x64\x64ress\x18\x03 \x01(\t\x12\x11\n\treal_name\x18\x04 \x01(\t\x12\x0f\n\x07\x63ountry\x18\x06 \x01(\t\x12\x12\n\navatar_bmp\x18\x07 \x01(\x0c\x12\x0e\n\x02id\x18\x08 \x01(\x11:\x02-1\x12\x15\n\tserver_id\x18\t \x01(\x11:\x02-1\x12\x12\n\nsession_id\x18\n \x01(\x04\x12\x17\n\x0f\x61\x63\x63ountage_secs\x18\x0b \x01(\x04\x12\r\n\x05\x65mail\x18\x0c \x01(\t\x12\x10\n\x08\x63lientid\x18\r \x01(\t\x12\x11\n\tprivlevel\x18\x0e \x01(\t\x12\x38\n\x0bpawn_colors\x18\x0f \x01(\x0b\x32#.ServerInfo_User.PawnColorsOverride\x12\x37\n\x0f\x63\x61rd_art_params\x18\x10 \x01(\x0b\x32\x1e.ServerInfo_User.CardArtParams\x1a;\n\x12PawnColorsOverride\x12\x11\n\tleft_side\x18\x01 \x01(\t\x12\x12\n\nright_side\x18\x02 \x01(\t\x1a\xa4\x01\n\rCardArtParams\x12\x11\n\tcard_name\x18\x01 \x01(\t\x12\x18\n\x10\x63\x61rd_provider_id\x18\x02 \x01(\t\x12\x1a\n\x0cmargin_pct_l\x18\x03 \x01(\x01:\x04\x30.33\x12\x1a\n\x0cmargin_pct_r\x18\x04 \x01(\x01:\x04\x30.02\x12\x1d\n\x0fvertical_offset\x18\x05 \x01(\x01:\x04\x30.35\x12\x0f\n\x04zoom\x18\x06 \x01(\x01:\x01\x31\"x\n\rUserLevelFlag\x12\r\n\tIsNothing\x10\x00\x12\n\n\x06IsUser\x10\x01\x12\x10\n\x0cIsRegistered\x10\x02\x12\x0f\n\x0bIsModerator\x10\x04\x12\x0b\n\x07IsAdmin\x10\x08\x12\x0b\n\x07IsJudge\x10\x10\x12\x0f\n\x0bIsDeveloper\x10 ')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'serverinfo_user_pb2', globals())
@@ -21,9 +21,11 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _SERVERINFO_USER._serialized_start=26
-  _SERVERINFO_USER._serialized_end=510
-  _SERVERINFO_USER_PAWNCOLORSOVERRIDE._serialized_start=346
-  _SERVERINFO_USER_PAWNCOLORSOVERRIDE._serialized_end=405
-  _SERVERINFO_USER_USERLEVELFLAG._serialized_start=407
-  _SERVERINFO_USER_USERLEVELFLAG._serialized_end=510
+  _SERVERINFO_USER._serialized_end=751
+  _SERVERINFO_USER_PAWNCOLORSOVERRIDE._serialized_start=403
+  _SERVERINFO_USER_PAWNCOLORSOVERRIDE._serialized_end=462
+  _SERVERINFO_USER_CARDARTPARAMS._serialized_start=465
+  _SERVERINFO_USER_CARDARTPARAMS._serialized_end=629
+  _SERVERINFO_USER_USERLEVELFLAG._serialized_start=631
+  _SERVERINFO_USER_USERLEVELFLAG._serialized_end=751
 # @@protoc_insertion_point(module_scope)

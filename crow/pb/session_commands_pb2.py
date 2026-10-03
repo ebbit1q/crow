@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x16session_commands.proto\"\xa5\x05\n\x0eSessionCommand\"\x88\x05\n\x12SessionCommandType\x12\t\n\x04PING\x10\xe8\x07\x12\n\n\x05LOGIN\x10\xe9\x07\x12\x0c\n\x07MESSAGE\x10\xea\x07\x12\x0f\n\nLIST_USERS\x10\xeb\x07\x12\x16\n\x11GET_GAMES_OF_USER\x10\xec\x07\x12\x12\n\rGET_USER_INFO\x10\xed\x07\x12\x10\n\x0b\x41\x44\x44_TO_LIST\x10\xee\x07\x12\x15\n\x10REMOVE_FROM_LIST\x10\xef\x07\x12\x0e\n\tDECK_LIST\x10\xf0\x07\x12\x11\n\x0c\x44\x45\x43K_NEW_DIR\x10\xf1\x07\x12\x11\n\x0c\x44\x45\x43K_DEL_DIR\x10\xf2\x07\x12\r\n\x08\x44\x45\x43K_DEL\x10\xf3\x07\x12\x12\n\rDECK_DOWNLOAD\x10\xf4\x07\x12\x10\n\x0b\x44\x45\x43K_UPLOAD\x10\xf5\x07\x12\x0f\n\nLIST_ROOMS\x10\xf6\x07\x12\x0e\n\tJOIN_ROOM\x10\xf7\x07\x12\r\n\x08REGISTER\x10\xf8\x07\x12\r\n\x08\x41\x43TIVATE\x10\xf9\x07\x12\x11\n\x0c\x41\x43\x43OUNT_EDIT\x10\xfa\x07\x12\x12\n\rACCOUNT_IMAGE\x10\xfb\x07\x12\x15\n\x10\x41\x43\x43OUNT_PASSWORD\x10\xfc\x07\x12\x1c\n\x17\x46ORGOT_PASSWORD_REQUEST\x10\xfd\x07\x12\x1a\n\x15\x46ORGOT_PASSWORD_RESET\x10\xfe\x07\x12\x1e\n\x19\x46ORGOT_PASSWORD_CHALLENGE\x10\xff\x07\x12\x1a\n\x15REQUEST_PASSWORD_SALT\x10\x80\x08\x12\x10\n\x0bREPLAY_LIST\x10\xcc\x08\x12\x14\n\x0fREPLAY_DOWNLOAD\x10\xcd\x08\x12\x18\n\x13REPLAY_MODIFY_MATCH\x10\xce\x08\x12\x18\n\x13REPLAY_DELETE_MATCH\x10\xcf\x08\x12\x14\n\x0fREPLAY_GET_CODE\x10\xd0\x08\x12\x17\n\x12REPLAY_SUBMIT_CODE\x10\xd1\x08*\x08\x08\x64\x10\x80\x80\x80\x80\x02\"<\n\x0c\x43ommand_Ping2,\n\x03\x65xt\x12\x0f.SessionCommand\x18\xe8\x07 \x01(\x0b\x32\r.Command_Ping\"\xb9\x01\n\rCommand_Login\x12\x11\n\tuser_name\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\x10\n\x08\x63lientid\x18\x03 \x01(\t\x12\x11\n\tclientver\x18\x04 \x01(\t\x12\x16\n\x0e\x63lientfeatures\x18\x05 \x03(\t\x12\x17\n\x0fhashed_password\x18\x06 \x01(\t2-\n\x03\x65xt\x12\x0f.SessionCommand\x18\xe9\x07 \x01(\x0b\x32\x0e.Command_Login\"f\n\x0f\x43ommand_Message\x12\x11\n\tuser_name\x18\x01 \x01(\t\x12\x0f\n\x07message\x18\x02 \x01(\t2/\n\x03\x65xt\x12\x0f.SessionCommand\x18\xea\x07 \x01(\x0b\x32\x10.Command_Message\"F\n\x11\x43ommand_ListUsers21\n\x03\x65xt\x12\x0f.SessionCommand\x18\xeb\x07 \x01(\x0b\x32\x12.Command_ListUsers\"c\n\x16\x43ommand_GetGamesOfUser\x12\x11\n\tuser_name\x18\x01 \x01(\t26\n\x03\x65xt\x12\x0f.SessionCommand\x18\xec\x07 \x01(\x0b\x32\x17.Command_GetGamesOfUser\"]\n\x13\x43ommand_GetUserInfo\x12\x11\n\tuser_name\x18\x01 \x01(\t23\n\x03\x65xt\x12\x0f.SessionCommand\x18\xed\x07 \x01(\x0b\x32\x14.Command_GetUserInfo\"g\n\x11\x43ommand_AddToList\x12\x0c\n\x04list\x18\x01 \x01(\t\x12\x11\n\tuser_name\x18\x02 \x01(\t21\n\x03\x65xt\x12\x0f.SessionCommand\x18\xee\x07 \x01(\x0b\x32\x12.Command_AddToList\"q\n\x16\x43ommand_RemoveFromList\x12\x0c\n\x04list\x18\x01 \x01(\t\x12\x11\n\tuser_name\x18\x02 \x01(\t26\n\x03\x65xt\x12\x0f.SessionCommand\x18\xef\x07 \x01(\x0b\x32\x17.Command_RemoveFromList\"F\n\x11\x43ommand_ListRooms21\n\x03\x65xt\x12\x0f.SessionCommand\x18\xf6\x07 \x01(\x0b\x32\x12.Command_ListRooms\"U\n\x10\x43ommand_JoinRoom\x12\x0f\n\x07room_id\x18\x01 \x01(\r20\n\x03\x65xt\x12\x0f.SessionCommand\x18\xf7\x07 \x01(\x0b\x32\x11.Command_JoinRoom\"\xc7\x01\n\x10\x43ommand_Register\x12\x11\n\tuser_name\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x0f\n\x07\x63ountry\x18\x05 \x01(\t\x12\x11\n\treal_name\x18\x06 \x01(\t\x12\x10\n\x08\x63lientid\x18\x07 \x01(\t\x12\x17\n\x0fhashed_password\x18\x08 \x01(\t20\n\x03\x65xt\x12\x0f.SessionCommand\x18\xf8\x07 \x01(\x0b\x32\x11.Command_Register\"x\n\x10\x43ommand_Activate\x12\x11\n\tuser_name\x18\x01 \x02(\t\x12\r\n\x05token\x18\x02 \x02(\t\x12\x10\n\x08\x63lientid\x18\x03 \x01(\t20\n\x03\x65xt\x12\x0f.SessionCommand\x18\xf9\x07 \x01(\x0b\x32\x11.Command_Activate\"\x95\x01\n\x13\x43ommand_AccountEdit\x12\x11\n\treal_name\x18\x01 \x01(\t\x12\r\n\x05\x65mail\x18\x02 \x01(\t\x12\x0f\n\x07\x63ountry\x18\x04 \x01(\t\x12\x16\n\x0epassword_check\x18\x64 \x01(\t23\n\x03\x65xt\x12\x0f.SessionCommand\x18\xfa\x07 \x01(\x0b\x32\x14.Command_AccountEdit\"[\n\x14\x43ommand_AccountImage\x12\r\n\x05image\x18\x01 \x01(\x0c\x32\x34\n\x03\x65xt\x12\x0f.SessionCommand\x18\xfb\x07 \x01(\x0b\x32\x15.Command_AccountImage\"\x9b\x01\n\x17\x43ommand_AccountPassword\x12\x14\n\x0cold_password\x18\x01 \x01(\t\x12\x14\n\x0cnew_password\x18\x02 \x01(\t\x12\x1b\n\x13hashed_new_password\x18\x04 \x01(\t27\n\x03\x65xt\x12\x0f.SessionCommand\x18\xfc\x07 \x01(\x0b\x32\x18.Command_AccountPassword\"\x83\x01\n\x1d\x43ommand_ForgotPasswordRequest\x12\x11\n\tuser_name\x18\x01 \x02(\t\x12\x10\n\x08\x63lientid\x18\x02 \x01(\t2=\n\x03\x65xt\x12\x0f.SessionCommand\x18\xfd\x07 \x01(\x0b\x32\x1e.Command_ForgotPasswordRequest\"\xc1\x01\n\x1b\x43ommand_ForgotPasswordReset\x12\x11\n\tuser_name\x18\x01 \x02(\t\x12\x10\n\x08\x63lientid\x18\x02 \x01(\t\x12\r\n\x05token\x18\x03 \x01(\t\x12\x14\n\x0cnew_password\x18\x04 \x01(\t\x12\x1b\n\x13hashed_new_password\x18\x05 \x01(\t2;\n\x03\x65xt\x12\x0f.SessionCommand\x18\xfe\x07 \x01(\x0b\x32\x1c.Command_ForgotPasswordReset\"\x96\x01\n\x1f\x43ommand_ForgotPasswordChallenge\x12\x11\n\tuser_name\x18\x01 \x02(\t\x12\x10\n\x08\x63lientid\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t2?\n\x03\x65xt\x12\x0f.SessionCommand\x18\xff\x07 \x01(\x0b\x32 .Command_ForgotPasswordChallenge\"m\n\x1b\x43ommand_RequestPasswordSalt\x12\x11\n\tuser_name\x18\x01 \x02(\t2;\n\x03\x65xt\x12\x0f.SessionCommand\x18\x80\x08 \x01(\x0b\x32\x1c.Command_RequestPasswordSalt')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x16session_commands.proto\"\xda\x07\n\x0eSessionCommand\"\xbd\x07\n\x12SessionCommandType\x12\t\n\x04PING\x10\xe8\x07\x12\n\n\x05LOGIN\x10\xe9\x07\x12\x0c\n\x07MESSAGE\x10\xea\x07\x12\x0f\n\nLIST_USERS\x10\xeb\x07\x12\x16\n\x11GET_GAMES_OF_USER\x10\xec\x07\x12\x12\n\rGET_USER_INFO\x10\xed\x07\x12\x10\n\x0b\x41\x44\x44_TO_LIST\x10\xee\x07\x12\x15\n\x10REMOVE_FROM_LIST\x10\xef\x07\x12\x0e\n\tDECK_LIST\x10\xf0\x07\x12\x11\n\x0c\x44\x45\x43K_NEW_DIR\x10\xf1\x07\x12\x11\n\x0c\x44\x45\x43K_DEL_DIR\x10\xf2\x07\x12\r\n\x08\x44\x45\x43K_DEL\x10\xf3\x07\x12\x12\n\rDECK_DOWNLOAD\x10\xf4\x07\x12\x10\n\x0b\x44\x45\x43K_UPLOAD\x10\xf5\x07\x12\x0f\n\nLIST_ROOMS\x10\xf6\x07\x12\x0e\n\tJOIN_ROOM\x10\xf7\x07\x12\r\n\x08REGISTER\x10\xf8\x07\x12\r\n\x08\x41\x43TIVATE\x10\xf9\x07\x12\x11\n\x0c\x41\x43\x43OUNT_EDIT\x10\xfa\x07\x12\x12\n\rACCOUNT_IMAGE\x10\xfb\x07\x12\x15\n\x10\x41\x43\x43OUNT_PASSWORD\x10\xfc\x07\x12\x1c\n\x17\x46ORGOT_PASSWORD_REQUEST\x10\xfd\x07\x12\x1a\n\x15\x46ORGOT_PASSWORD_RESET\x10\xfe\x07\x12\x1e\n\x19\x46ORGOT_PASSWORD_CHALLENGE\x10\xff\x07\x12\x1a\n\x15REQUEST_PASSWORD_SALT\x10\x80\x08\x12\x18\n\x13SET_CARD_ART_PARAMS\x10\x81\x08\x12\x16\n\x11\x44\x45\x43K_SHARE_CREATE\x10\x82\x08\x12\x14\n\x0f\x44\x45\x43K_SHARE_LIST\x10\x83\x08\x12\x18\n\x13\x44\x45\x43K_SHARE_DOWNLOAD\x10\x84\x08\x12\x19\n\x14\x44\x45\x43K_LIST_OTHER_USER\x10\x85\x08\x12\x18\n\x13\x44\x45\x43K_SET_VISIBILITY\x10\x86\x08\x12\x19\n\x14\x44\x45\x43K_DOWNLOAD_PUBLIC\x10\x87\x08\x12\x19\n\x14\x44\x45\x43K_SHARE_LIST_MINE\x10\x88\x08\x12\x16\n\x11\x44\x45\x43K_SHARE_REMOVE\x10\x89\x08\x12\x10\n\x0bREPLAY_LIST\x10\xcc\x08\x12\x14\n\x0fREPLAY_DOWNLOAD\x10\xcd\x08\x12\x18\n\x13REPLAY_MODIFY_MATCH\x10\xce\x08\x12\x18\n\x13REPLAY_DELETE_MATCH\x10\xcf\x08\x12\x14\n\x0fREPLAY_GET_CODE\x10\xd0\x08\x12\x17\n\x12REPLAY_SUBMIT_CODE\x10\xd1\x08\x12\x0b\n\x06REPORT\x10\xb0\t\x12\x13\n\x0eREPORT_MY_LIST\x10\xb4\t\x12\x17\n\x12REPORT_ADD_COMMENT\x10\xb5\t\x12\x13\n\x0eREPORT_DETAILS\x10\xb6\t*\x08\x08\x64\x10\x80\x80\x80\x80\x02\"<\n\x0c\x43ommand_Ping2,\n\x03\x65xt\x12\x0f.SessionCommand\x18\xe8\x07 \x01(\x0b\x32\r.Command_Ping\"\xb9\x01\n\rCommand_Login\x12\x11\n\tuser_name\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\x10\n\x08\x63lientid\x18\x03 \x01(\t\x12\x11\n\tclientver\x18\x04 \x01(\t\x12\x16\n\x0e\x63lientfeatures\x18\x05 \x03(\t\x12\x17\n\x0fhashed_password\x18\x06 \x01(\t2-\n\x03\x65xt\x12\x0f.SessionCommand\x18\xe9\x07 \x01(\x0b\x32\x0e.Command_Login\"f\n\x0f\x43ommand_Message\x12\x11\n\tuser_name\x18\x01 \x01(\t\x12\x0f\n\x07message\x18\x02 \x01(\t2/\n\x03\x65xt\x12\x0f.SessionCommand\x18\xea\x07 \x01(\x0b\x32\x10.Command_Message\"F\n\x11\x43ommand_ListUsers21\n\x03\x65xt\x12\x0f.SessionCommand\x18\xeb\x07 \x01(\x0b\x32\x12.Command_ListUsers\"c\n\x16\x43ommand_GetGamesOfUser\x12\x11\n\tuser_name\x18\x01 \x01(\t26\n\x03\x65xt\x12\x0f.SessionCommand\x18\xec\x07 \x01(\x0b\x32\x17.Command_GetGamesOfUser\"]\n\x13\x43ommand_GetUserInfo\x12\x11\n\tuser_name\x18\x01 \x01(\t23\n\x03\x65xt\x12\x0f.SessionCommand\x18\xed\x07 \x01(\x0b\x32\x14.Command_GetUserInfo\"g\n\x11\x43ommand_AddToList\x12\x0c\n\x04list\x18\x01 \x01(\t\x12\x11\n\tuser_name\x18\x02 \x01(\t21\n\x03\x65xt\x12\x0f.SessionCommand\x18\xee\x07 \x01(\x0b\x32\x12.Command_AddToList\"q\n\x16\x43ommand_RemoveFromList\x12\x0c\n\x04list\x18\x01 \x01(\t\x12\x11\n\tuser_name\x18\x02 \x01(\t26\n\x03\x65xt\x12\x0f.SessionCommand\x18\xef\x07 \x01(\x0b\x32\x17.Command_RemoveFromList\"F\n\x11\x43ommand_ListRooms21\n\x03\x65xt\x12\x0f.SessionCommand\x18\xf6\x07 \x01(\x0b\x32\x12.Command_ListRooms\"U\n\x10\x43ommand_JoinRoom\x12\x0f\n\x07room_id\x18\x01 \x01(\r20\n\x03\x65xt\x12\x0f.SessionCommand\x18\xf7\x07 \x01(\x0b\x32\x11.Command_JoinRoom\"\xc7\x01\n\x10\x43ommand_Register\x12\x11\n\tuser_name\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x0f\n\x07\x63ountry\x18\x05 \x01(\t\x12\x11\n\treal_name\x18\x06 \x01(\t\x12\x10\n\x08\x63lientid\x18\x07 \x01(\t\x12\x17\n\x0fhashed_password\x18\x08 \x01(\t20\n\x03\x65xt\x12\x0f.SessionCommand\x18\xf8\x07 \x01(\x0b\x32\x11.Command_Register\"x\n\x10\x43ommand_Activate\x12\x11\n\tuser_name\x18\x01 \x02(\t\x12\r\n\x05token\x18\x02 \x02(\t\x12\x10\n\x08\x63lientid\x18\x03 \x01(\t20\n\x03\x65xt\x12\x0f.SessionCommand\x18\xf9\x07 \x01(\x0b\x32\x11.Command_Activate\"\x95\x01\n\x13\x43ommand_AccountEdit\x12\x11\n\treal_name\x18\x01 \x01(\t\x12\r\n\x05\x65mail\x18\x02 \x01(\t\x12\x0f\n\x07\x63ountry\x18\x04 \x01(\t\x12\x16\n\x0epassword_check\x18\x64 \x01(\t23\n\x03\x65xt\x12\x0f.SessionCommand\x18\xfa\x07 \x01(\x0b\x32\x14.Command_AccountEdit\"[\n\x14\x43ommand_AccountImage\x12\r\n\x05image\x18\x01 \x01(\x0c\x32\x34\n\x03\x65xt\x12\x0f.SessionCommand\x18\xfb\x07 \x01(\x0b\x32\x15.Command_AccountImage\"\x9b\x01\n\x17\x43ommand_AccountPassword\x12\x14\n\x0cold_password\x18\x01 \x01(\t\x12\x14\n\x0cnew_password\x18\x02 \x01(\t\x12\x1b\n\x13hashed_new_password\x18\x04 \x01(\t27\n\x03\x65xt\x12\x0f.SessionCommand\x18\xfc\x07 \x01(\x0b\x32\x18.Command_AccountPassword\"\x83\x01\n\x1d\x43ommand_ForgotPasswordRequest\x12\x11\n\tuser_name\x18\x01 \x02(\t\x12\x10\n\x08\x63lientid\x18\x02 \x01(\t2=\n\x03\x65xt\x12\x0f.SessionCommand\x18\xfd\x07 \x01(\x0b\x32\x1e.Command_ForgotPasswordRequest\"\xc1\x01\n\x1b\x43ommand_ForgotPasswordReset\x12\x11\n\tuser_name\x18\x01 \x02(\t\x12\x10\n\x08\x63lientid\x18\x02 \x01(\t\x12\r\n\x05token\x18\x03 \x01(\t\x12\x14\n\x0cnew_password\x18\x04 \x01(\t\x12\x1b\n\x13hashed_new_password\x18\x05 \x01(\t2;\n\x03\x65xt\x12\x0f.SessionCommand\x18\xfe\x07 \x01(\x0b\x32\x1c.Command_ForgotPasswordReset\"\x96\x01\n\x1f\x43ommand_ForgotPasswordChallenge\x12\x11\n\tuser_name\x18\x01 \x02(\t\x12\x10\n\x08\x63lientid\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t2?\n\x03\x65xt\x12\x0f.SessionCommand\x18\xff\x07 \x01(\x0b\x32 .Command_ForgotPasswordChallenge\"m\n\x1b\x43ommand_RequestPasswordSalt\x12\x11\n\tuser_name\x18\x01 \x02(\t2;\n\x03\x65xt\x12\x0f.SessionCommand\x18\x80\x08 \x01(\x0b\x32\x1c.Command_RequestPasswordSalt\"\xd4\x01\n\x18\x43ommand_SetCardArtParams\x12\x11\n\tcard_name\x18\x01 \x01(\t\x12\x18\n\x10\x63\x61rd_provider_id\x18\x02 \x01(\t\x12\x14\n\x0cmargin_pct_l\x18\x03 \x01(\x01\x12\x14\n\x0cmargin_pct_r\x18\x04 \x01(\x01\x12\x17\n\x0fvertical_offset\x18\x05 \x01(\x01\x12\x0c\n\x04zoom\x18\x06 \x01(\x01\x32\x38\n\x03\x65xt\x12\x0f.SessionCommand\x18\x81\x08 \x01(\x0b\x32\x19.Command_SetCardArtParams')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'session_commands_pb2', globals())
@@ -37,48 +37,51 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   SessionCommand.RegisterExtension(_COMMAND_FORGOTPASSWORDRESET.extensions_by_name['ext'])
   SessionCommand.RegisterExtension(_COMMAND_FORGOTPASSWORDCHALLENGE.extensions_by_name['ext'])
   SessionCommand.RegisterExtension(_COMMAND_REQUESTPASSWORDSALT.extensions_by_name['ext'])
+  SessionCommand.RegisterExtension(_COMMAND_SETCARDARTPARAMS.extensions_by_name['ext'])
 
   DESCRIPTOR._options = None
   _SESSIONCOMMAND._serialized_start=27
-  _SESSIONCOMMAND._serialized_end=704
+  _SESSIONCOMMAND._serialized_end=1013
   _SESSIONCOMMAND_SESSIONCOMMANDTYPE._serialized_start=46
-  _SESSIONCOMMAND_SESSIONCOMMANDTYPE._serialized_end=694
-  _COMMAND_PING._serialized_start=706
-  _COMMAND_PING._serialized_end=766
-  _COMMAND_LOGIN._serialized_start=769
-  _COMMAND_LOGIN._serialized_end=954
-  _COMMAND_MESSAGE._serialized_start=956
-  _COMMAND_MESSAGE._serialized_end=1058
-  _COMMAND_LISTUSERS._serialized_start=1060
-  _COMMAND_LISTUSERS._serialized_end=1130
-  _COMMAND_GETGAMESOFUSER._serialized_start=1132
-  _COMMAND_GETGAMESOFUSER._serialized_end=1231
-  _COMMAND_GETUSERINFO._serialized_start=1233
-  _COMMAND_GETUSERINFO._serialized_end=1326
-  _COMMAND_ADDTOLIST._serialized_start=1328
-  _COMMAND_ADDTOLIST._serialized_end=1431
-  _COMMAND_REMOVEFROMLIST._serialized_start=1433
-  _COMMAND_REMOVEFROMLIST._serialized_end=1546
-  _COMMAND_LISTROOMS._serialized_start=1548
-  _COMMAND_LISTROOMS._serialized_end=1618
-  _COMMAND_JOINROOM._serialized_start=1620
-  _COMMAND_JOINROOM._serialized_end=1705
-  _COMMAND_REGISTER._serialized_start=1708
-  _COMMAND_REGISTER._serialized_end=1907
-  _COMMAND_ACTIVATE._serialized_start=1909
-  _COMMAND_ACTIVATE._serialized_end=2029
-  _COMMAND_ACCOUNTEDIT._serialized_start=2032
-  _COMMAND_ACCOUNTEDIT._serialized_end=2181
-  _COMMAND_ACCOUNTIMAGE._serialized_start=2183
-  _COMMAND_ACCOUNTIMAGE._serialized_end=2274
-  _COMMAND_ACCOUNTPASSWORD._serialized_start=2277
-  _COMMAND_ACCOUNTPASSWORD._serialized_end=2432
-  _COMMAND_FORGOTPASSWORDREQUEST._serialized_start=2435
-  _COMMAND_FORGOTPASSWORDREQUEST._serialized_end=2566
-  _COMMAND_FORGOTPASSWORDRESET._serialized_start=2569
-  _COMMAND_FORGOTPASSWORDRESET._serialized_end=2762
-  _COMMAND_FORGOTPASSWORDCHALLENGE._serialized_start=2765
-  _COMMAND_FORGOTPASSWORDCHALLENGE._serialized_end=2915
-  _COMMAND_REQUESTPASSWORDSALT._serialized_start=2917
-  _COMMAND_REQUESTPASSWORDSALT._serialized_end=3026
+  _SESSIONCOMMAND_SESSIONCOMMANDTYPE._serialized_end=1003
+  _COMMAND_PING._serialized_start=1015
+  _COMMAND_PING._serialized_end=1075
+  _COMMAND_LOGIN._serialized_start=1078
+  _COMMAND_LOGIN._serialized_end=1263
+  _COMMAND_MESSAGE._serialized_start=1265
+  _COMMAND_MESSAGE._serialized_end=1367
+  _COMMAND_LISTUSERS._serialized_start=1369
+  _COMMAND_LISTUSERS._serialized_end=1439
+  _COMMAND_GETGAMESOFUSER._serialized_start=1441
+  _COMMAND_GETGAMESOFUSER._serialized_end=1540
+  _COMMAND_GETUSERINFO._serialized_start=1542
+  _COMMAND_GETUSERINFO._serialized_end=1635
+  _COMMAND_ADDTOLIST._serialized_start=1637
+  _COMMAND_ADDTOLIST._serialized_end=1740
+  _COMMAND_REMOVEFROMLIST._serialized_start=1742
+  _COMMAND_REMOVEFROMLIST._serialized_end=1855
+  _COMMAND_LISTROOMS._serialized_start=1857
+  _COMMAND_LISTROOMS._serialized_end=1927
+  _COMMAND_JOINROOM._serialized_start=1929
+  _COMMAND_JOINROOM._serialized_end=2014
+  _COMMAND_REGISTER._serialized_start=2017
+  _COMMAND_REGISTER._serialized_end=2216
+  _COMMAND_ACTIVATE._serialized_start=2218
+  _COMMAND_ACTIVATE._serialized_end=2338
+  _COMMAND_ACCOUNTEDIT._serialized_start=2341
+  _COMMAND_ACCOUNTEDIT._serialized_end=2490
+  _COMMAND_ACCOUNTIMAGE._serialized_start=2492
+  _COMMAND_ACCOUNTIMAGE._serialized_end=2583
+  _COMMAND_ACCOUNTPASSWORD._serialized_start=2586
+  _COMMAND_ACCOUNTPASSWORD._serialized_end=2741
+  _COMMAND_FORGOTPASSWORDREQUEST._serialized_start=2744
+  _COMMAND_FORGOTPASSWORDREQUEST._serialized_end=2875
+  _COMMAND_FORGOTPASSWORDRESET._serialized_start=2878
+  _COMMAND_FORGOTPASSWORDRESET._serialized_end=3071
+  _COMMAND_FORGOTPASSWORDCHALLENGE._serialized_start=3074
+  _COMMAND_FORGOTPASSWORDCHALLENGE._serialized_end=3224
+  _COMMAND_REQUESTPASSWORDSALT._serialized_start=3226
+  _COMMAND_REQUESTPASSWORDSALT._serialized_end=3335
+  _COMMAND_SETCARDARTPARAMS._serialized_start=3338
+  _COMMAND_SETCARDARTPARAMS._serialized_end=3550
 # @@protoc_insertion_point(module_scope)
