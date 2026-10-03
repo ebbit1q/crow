@@ -18,15 +18,6 @@ class ServerError(Exception):
         Exception.__init__(self, f"received error response: {self.name}")
 
 
-class RegistrationNeedsActivation(Exception):
-    """RegistrationNeedsActivation is raised when activation is needed.
-
-    The server can require new accounts to activate theri account before use,
-    generally through an email code.
-    """
-
-
-
 class crow:
     """crow implements the cockatrice protocol as a client"""
 
@@ -55,10 +46,14 @@ class crow:
         self._handler = handler.handler()
         self._connection = connection.connection(self._handler)
 
+    # TODO: Return a more descriptive enum, e.g. ReigstrationResult.OK, RegistrationResult.NEEDS_ACTIVATION
+    #  and RegistrationResult.REGISTRATION_DISABLED
+    @staticmethod
     async def register(
-        self,
+        url: str,
+        username: str,
+        password: str,
         email: str | None = None,
-        password: str | None = None,
         country: str | None = None,
         real_name: str | None = None,
     ):
@@ -68,45 +63,65 @@ class crow:
         for this instance.
 
         Args:
-            email: Email address to be registered.
-            password: Password to register, if not provided earlier.
-            country: 2 letter country code in ISO format.
-            real_name: User's real name.
+            url: The websocket url to connect to, e.g. ws://example.com
+            username: The username to register with.
+            password: The password to register with.
+            email: The email address to be registered. It may not be mandatory based on the server's configuration.
+            country: A 2-letter country code in ISO format. Optional.
+            real_name: The user's real name. Optional.
+
+        Returns:
+            ``True`` if the registration was successful, ``False`` if the emails needs to be confirmed and the account needs
+                to be activated
 
         Raises:
-            ValueError: If password is not provided
-            RegistrationNeedsActivation: When the account needs activation.
-            ServerError: When the server sends an error response.
+            ValueError: If username, password and/or url are not provided.
+            ServerError: If the server sends an error response.
         """
-        if password is not None:
-            self.password = password
+        if url is None:
+            raise ValueError(
+                "The server's WebSocket URL is required to register."
+            )
+        if username is None:
+            raise ValueError("A username is required to register.")
+        if password is None:
+            raise ValueError("A password is required to register.")
 
-        if self.password is None:
-            raise ValueError("a password is required to register")
+        registration_client = protocol.client()
+        registration_handler = handler.handler()
+        registration_connection = connection.connection(registration_handler)
 
-        await self._connection.connect(self.url)
-        self._client.reset()
+        await registration_connection.connect(url)
+        registration_client.reset()
 
         kwargs = {}
         if email is not None:
             kwargs["email"] = email
-
         if country is not None:
             kwargs["country"] = country
-
         if real_name is not None:
             kwargs["real_name"] = real_name
 
         try:
-            await self.send_command(
+            msg_bytes, msg_id = registration_client.build(
                 protocol.session_commands.register,
-                user_name=self.username,
-                clientid=self.clientid,
-                password=self.password,
+                user_name=username,
+                clientid=f"crow_{username}",
+                password=password,
                 **kwargs,
             )
+            await registration_connection.send(msg_bytes)
+            resp = await registration_handler.get_response(msg_id)
         finally:
-            self._connection.close()
+            registration_connection.close()
+
+        match resp.response_code:
+            case protocol.Response.RespRegistrationAccepted:
+                return True
+            case protocol.Response.RespRegistrationAcceptedNeedsActivation:
+                return False
+            case _:
+                raise ServerError(resp)
 
     async def login(self):
         """Log in to the server.
@@ -157,11 +172,12 @@ class crow:
         msg_bytes, msg_id = self._client.build(command, *args, **kwargs)
         await self._connection.send(msg_bytes)
         resp = await self._handler.get_response(msg_id)
+        # TODO: Cleanup this match statement
         match resp.response_code:
             case protocol.Response.RespOk:
                 pass
             case protocol.Response.RespRegistrationAcceptedNeedsActivation:
-                raise RegistrationNeedsActivation()
+                pass
             case _:
                 raise ServerError(resp)
 
